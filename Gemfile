@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+group :development do
+  # mailcatcher super simple smtp server
+  gem 'mailcatcher', '~> 0.6.1'
+end
 # devise
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
