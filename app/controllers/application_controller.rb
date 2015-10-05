@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
-  # devise is weird and uses :authentication_keys for several
+  # devise is weird and uses :authentication_keys for two
   # RegistrationsController actions (#create, #udpate)
   # https://github.com/plataformatec/devise/blob/master/lib/devise/parameter_sanitizer.rb
   # def attributes_for(kind)
   #   case kind
   #   when :sign_in
   #     auth_keys + [:password, :remember_me]
-  #   when :sign_up
+  #   when :sign_up # create
   #     auth_keys + [:password, :password_confirmation]
-  #   when :account_update
+  #   when :account_update # update
   #     auth_keys + [:password, :password_confirmation, :current_password]
   #   end
   # end
