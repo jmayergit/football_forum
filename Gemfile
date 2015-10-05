@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+
 group :development do
   # mailcatcher super simple smtp server
   gem 'mailcatcher', '~> 0.6.1'
