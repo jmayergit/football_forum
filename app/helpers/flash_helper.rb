@@ -1,6 +1,6 @@
 module FlashHelper
   # displays flash messages
-  def flash_messages
+  def flash_messages!
     if flash[:notice]
       html = '<div class="ui positive message">
               <p>' +
