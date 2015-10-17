@@ -12,7 +12,11 @@ class User < ActiveRecord::Base
          :confirmable
 
   def banned?
-    self.status.banned?
+    if self.status
+      self.status.banned?
+    else
+      return true
+    end
   end
 
   # Devise checks if your model is active by calling model.active_for_authentication?
