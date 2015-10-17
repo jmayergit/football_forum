@@ -11,12 +11,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
+
+  def has_status?
+    self.status ? true : false
+  end
+
   def banned?
-    if self.status
-      self.status.banned?
-    else
-      return true
+    if self.has_status?
+      return self.status.banned?
     end
+
+    true
   end
 
   # Devise checks if your model is active by calling model.active_for_authentication?
