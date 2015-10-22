@@ -1,1 +1,11 @@
 <h2>Forum Form</h2>
+
+<%= form_for @forum do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+
+  <%= f.label :private %>
+  <%= f.check_box :private %><br />
+
+  <%= f.submit %>
+<% end %>
