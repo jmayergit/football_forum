@@ -10,6 +10,13 @@ class ForumsController < ApplicationController
   end
 
   def create
+    @forum = Forum.new(forum_params)
+
+    if @forum.save
+      redirect_to forums_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -22,5 +29,11 @@ class ForumsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def forum_params
+    params.require(:forum).permit(:name, :private)
   end
 end

@@ -1,6 +1,8 @@
 <h2>Forum Form</h2>
 
 <%= form_for @forum do |f| %>
+  <%= @forum.errors.messages %>
+
   <%= f.label :name %>
   <%= f.text_field :name %><br />
 
