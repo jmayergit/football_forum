@@ -6,6 +6,7 @@
 <% @forums.each do |forum| %>
   <%= forum.name %>
   <%= link_to "Show", forum_path(forum) %>
-  <%= link_to "Edit", edit_forum_path(forum) %>
-  <%= link_to "Destroy", {action: 'destroy', id: forum}, confirm: "Are you sure?", method: :delete %><br />
+  <%= link_to_if admin_signed_in?, "Edit", edit_forum_path(forum) %>
+  <%= link_to_if admin_signed_in?, "Destroy", {action: "destroy", id: forum}, method: :delete %>
+  <br />
 <% end %>
