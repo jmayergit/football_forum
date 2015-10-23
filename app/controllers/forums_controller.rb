@@ -13,6 +13,7 @@ class ForumsController < ApplicationController
     @forum = Forum.new(forum_params)
 
     if @forum.save
+      flash[:notice] = "Forum Successfully Created."
       redirect_to forums_path
     else
       render :new
@@ -20,15 +21,32 @@ class ForumsController < ApplicationController
   end
 
   def show
+    @forum = Forum.find(params[:id])
   end
 
   def edit
+    @forum = Forum.find(params[:id])
   end
 
   def update
+    @forum = Forum.find(params[:id])
+    if @forum.update(forum_params)
+      flash[:notice] = "Forum Sucessfully Updated."
+      redirect_to forums_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @forum = Forum.find(params[:id])
+    if @forum.destroy
+      flash[:notice] = "Forum Successfully Destroyed."
+      redirect_to forums_path
+    else
+      flash[:alert] = "Unable To Destroy Forum."
+      redirect_to forums_path
+    end
   end
 
   private
