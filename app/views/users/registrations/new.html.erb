@@ -1,37 +1,44 @@
-<h2>Sign up</h2>
+<div class="ui container">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
 
-  <p id="error_username" class="red hidden">Username contains invalid characters</p>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
+      <div class="ui form">
 
-  <p id="error_password" class="red hidden">Password is not long enough</p>
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+        <h2>Sign up</h2>
 
-  <p id="error_confirmation" class="red hidden">Passwords do not match</p>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+          </div>
 
-<%= render "users/shared/links" %>
+          <p id="error_username" class="red hidden">Username contains invalid characters</p>
+          <div class="field">
+            <%= f.text_field :username, autofocus: true, placeholder: "Username" %>
+          </div>
+
+          <p id="error_password" class="red hidden">Password is not long enough</p>
+          <div class="field">
+            <!-- <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br /> -->
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password    (8 characters minimum)" %>
+          </div>
+
+          <p id="error_confirmation" class="red hidden">Passwords do not match</p>
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+        <% end %>
+
+        <%= render "users/shared/links" %>
+      </div>
+
+
+
+</div>
