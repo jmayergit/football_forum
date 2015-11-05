@@ -16,8 +16,23 @@ function remove_error(name) {
   delete errors[name];
 };
 
-function is_painted(field) {
-  return $(field)[0].className === "invalid";
+function reveal_message(id) {
+  $(id).removeClass("hidden");
+};
+
+function conceal_message(id) {
+  $(id).addClass("hidden");
+};
+
+function clear_if_empty(field) {
+  var value = $(field)[0].value;
+  if (field in errors) {
+    if (value === "") {
+      remove_error(field);
+      conceal_message("#error_password");
+      unpaint(field);
+    }
+  }
 };
 
 function validate_username(username) {
@@ -32,22 +47,16 @@ function validate_username(username) {
   if (valid) {
     if (field in errors) {
       remove_error(field);
+      conceal_message("#error_username");
       unpaint(field);
     }
   } else {
     if (!(field in errors)) {
       add_error(field, "Invalid characters");
+      reveal_message("#error_username");
       paint(field);
     }
   }
-};
-
-function validate_complexity(password) {
-
-};
-
-function validate_length(password) {
-
 };
 
 function validate_password(password) {
@@ -56,11 +65,13 @@ function validate_password(password) {
   if (valid) {
     if (field in errors) {
       remove_error(field);
+      conceal_message("#error_password");
       unpaint(field);
     }
   } else {
     if (!(field in errors)) {
       add_error(field, "Password not long enough");
+      reveal_message("#error_password");
       paint(field);
     }
   }
@@ -81,5 +92,10 @@ $(document).on('page:change', function(event) {
   $(":input#user_password").on("keyup", function(e) {
     var value = $(":input#user_password")[0].value;
     validate_password(value);
+  });
+
+  $(":input#user_password").on("blur", function(e) {
+    var field = ":input#user_password";
+    clear_if_empty(field);
   });
 });

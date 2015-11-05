@@ -8,11 +8,13 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <p id="error_username" class="red hidden">Username contains invalid characters</p>
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true %>
   </div>
 
+  <p id="error_password" class="red hidden">Password is not long enough</p>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
