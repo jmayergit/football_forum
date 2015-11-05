@@ -23,6 +23,7 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
+  <p id="error_confirmation" class="red hidden">Passwords do not match</p>
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
