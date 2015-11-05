@@ -35,10 +35,11 @@ function clear_if_empty(field) {
   }
 };
 
-function validate_username(username) {
+function validate_username() {
+  var field = ":input#user_username";
+  var username = $(field)[0].value;
   var re = /\W/;
   var valid = !re.test(username);
-  var field = ":input#user_username";
   //     invalid          valid
   //       |                |
   //    ---------       ----------
@@ -59,8 +60,9 @@ function validate_username(username) {
   }
 };
 
-function validate_password(password) {
+function validate_password() {
   var field = ":input#user_password";
+  var password = $(field)[0].value;
   var valid = password.length >= 8;
   if (valid) {
     if (field in errors) {
@@ -77,10 +79,11 @@ function validate_password(password) {
   }
 };
 
-function validate_confirmation(confirmation) {
+function validate_confirmation() {
+  var field = ":input#user_password_confirmation";
+  var confirmation = $(field)[0].value;
   var password = $(":input#user_password")[0].value;
   var match = (confirmation === password);
-  var field = ":input#user_password_confirmation";
   if (match) {
     if (field in errors) {
       remove_error(field);
@@ -103,14 +106,16 @@ $(document).on('ready page:load', function(event) {
 $(document).on('page:change', function(event) {
   // console.log("idempotent function");
   $(":input#user_username").on("keyup", function(e) {
-    var value = $(":input#user_username")[0].value;
-    validate_username(value);
+    validate_username();
   });
 
 
   $(":input#user_password").on("keyup", function(e) {
-    var value = $(":input#user_password")[0].value;
-    validate_password(value);
+    validate_password();
+
+    if (":input#user_password_confirmation" in errors) {
+      validate_confirmation();
+    }
   });
 
   $(":input#user_password").on("blur", function(e) {
@@ -119,7 +124,6 @@ $(document).on('page:change', function(event) {
   });
 
   $(":input#user_password_confirmation").on("keyup", function(e) {
-    var value = $("input#user_password_confirmation")[0].value;
-    validate_confirmation(value);
+    validate_confirmation();
   });
 });
