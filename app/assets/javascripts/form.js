@@ -1,11 +1,13 @@
+// not meant to be secure, simply adds user experience
+
 var errors = {};
 
 function paint(input) {
-  $(input).addClass("invalid");
+  $(input).parent().addClass("error");
 };
 
 function unpaint(input) {
-  $(input).removeClass("invalid");
+  $(input).parent().removeClass("error");
 };
 
 function add_error(name, value) {
