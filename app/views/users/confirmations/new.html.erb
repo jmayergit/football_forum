@@ -1,16 +1,32 @@
-<h2>Resend confirmation instructions</h2>
+<div class="ui middle aligned center aligned grid">
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> 
-  </div>
+    <div class="form column">
+      <h2 class="dull gold color">Resend confirmation instructions</h2>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
+      <div class="ui large form">
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+          <%= devise_error_messages! %>
 
-<%= render "users/shared/links" %>
+
+          <div class="ui stacked segment">
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Email" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Resend confirmation instructions", class: "ui fluid large submit button" %>
+            </div>
+          </div>
+
+        <% end %>
+
+      </div>
+
+      <div class="ui tertiary segment">
+          <%= render "users/shared/links" %>
+      </div>
+      
+    </div>
+
+</div>

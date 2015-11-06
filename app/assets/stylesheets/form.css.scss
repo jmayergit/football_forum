@@ -30,7 +30,7 @@ p.red {
   font-style: italic;
 }
 
-.signup.column {
+.form.column {
   max-width: 450px;
 }
 
@@ -46,24 +46,11 @@ p.red {
   color: #996633;
 }
 
-.ui.fluid.large.signup.submit.button {
+.ui.fluid.large.submit.button {
   background-color: #ffbb00;
   color: white;
 }
 
-.ui.fluid.large.signup.submit.button:hover {
-  background-color: #dd9922;
-}
-
-.signin.column {
-  max-width: 450px;
-}
-
-.ui.fluid.large.signin.submit.button {
-  background-color: #ffbb00;
-  color: white;
-}
-
-.ui.fluid.large.signin.submit.button:hover {
+.ui.fluid.large.submit.button:hover {
   background-color: #dd9922;
 }
