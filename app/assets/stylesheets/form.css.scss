@@ -29,3 +29,28 @@ p.red {
 :-ms-input-placeholder {
   font-style: italic;
 }
+
+.signup.column {
+  max-width: 450px;
+}
+
+.dull.gold.color {
+  color: #dd9922;
+}
+
+.gold.color {
+  color: #ffbb00;
+}
+
+.saiyan.brown.color {
+  color: #996633;
+}
+
+.ui.fluid.large.signup.submit.button {
+  background-color: #ffbb00;
+  color: white;
+}
+
+.ui.fluid.large.signup.submit.button:hover {
+  background-color: #dd9922;
+}
