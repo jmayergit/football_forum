@@ -54,3 +54,16 @@ p.red {
 .ui.fluid.large.signup.submit.button:hover {
   background-color: #dd9922;
 }
+
+.signin.column {
+  max-width: 450px;
+}
+
+.ui.fluid.large.signin.submit.button {
+  background-color: #ffbb00;
+  color: white;
+}
+
+.ui.fluid.large.signin.submit.button:hover {
+  background-color: #dd9922;
+}

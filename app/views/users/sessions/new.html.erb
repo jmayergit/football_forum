@@ -1,26 +1,44 @@
-<h2>Log in</h2>
+<div class="ui middle aligned center aligned grid">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
+      <div class="signin column">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+          <h2 class="dull gold color">Log in</h2>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+          <div class="ui large form">
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<%= render "users/shared/links" %>
+              <div class="ui stacked segment">
+
+                <div class="field">
+                  <%= f.text_field :username, autofocus: true, placeholder: "Username" %>
+                </div>
+
+                <div class="field">
+                  <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+                </div>
+
+                <% if devise_mapping.rememberable? -%>
+                  <div class="field">
+                    <div class="ui row">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me %>
+
+                    </div>
+                  </div>
+                <% end -%>
+
+                <div class="actions">
+                  <%= f.submit "Log in", class: "ui fluid large signin submit button" %>
+                </div>
+              <% end %>
+              </div>
+          </div>
+
+          <div class="ui tertiary segment">
+              <%= render "users/shared/links" %>
+          </div>
+
+      </div>
+
+</div>
