@@ -2,19 +2,17 @@ module FlashHelper
   # displays flash messages of type notice or type alert
   def flash_messages!
     if flash[:notice]
-      html = '<div class="ui positive message">
-              <p>' +
-                flash[:notice] +
-              '</p>
-            </div>'
+      html = '<div class="flash ui positive message">
+                <i class="close icon"></i>' +
+                  flash[:notice] +
+                '</div>'
 
       html.html_safe
     elsif flash[:alert]
-      html = '<div class="ui negative message">
-              <p>' +
-                flash[:alert] +
-              '</p>
-            </div>'
+      html = '<div class="flash ui negative message">
+                <i class="close icon"></i>' +
+                  flash[:alert] +
+              '</div>'
 
       html.html_safe
     end
