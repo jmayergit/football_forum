@@ -107,25 +107,29 @@ $(document).on('ready page:load', function(event) {
 
 $(document).on('page:change', function(event) {
   // console.log("idempotent function");
-  $(":input#user_username").on("keyup", function(e) {
-    validate_username();
-  });
+  // only want this behavior on sign up page, not any other form that has
+  // username, password, or password confirmation (3)
+  if ($(".registrations.new").length > 0) {
+    $(":input#user_username").on("keyup", function(e) {
+      validate_username();
+    });
 
 
-  $(":input#user_password").on("keyup", function(e) {
-    validate_password();
+    $(":input#user_password").on("keyup", function(e) {
+      validate_password();
 
-    if (":input#user_password_confirmation" in errors) {
+      if (":input#user_password_confirmation" in errors) {
+        validate_confirmation();
+      }
+    });
+
+    $(":input#user_password").on("blur", function(e) {
+      var field = ":input#user_password";
+      clear_if_empty(field);
+    });
+
+    $(":input#user_password_confirmation").on("keyup", function(e) {
       validate_confirmation();
-    }
-  });
-
-  $(":input#user_password").on("blur", function(e) {
-    var field = ":input#user_password";
-    clear_if_empty(field);
-  });
-
-  $(":input#user_password_confirmation").on("keyup", function(e) {
-    validate_confirmation();
-  });
+    });
+  }
 });
