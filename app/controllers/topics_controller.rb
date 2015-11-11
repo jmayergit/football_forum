@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    @post = @topic.posts.new
   end
 
   def create
@@ -18,9 +19,13 @@ class TopicsController < ApplicationController
     end
   end
 
+  def show
+    @topic = Topic.find(params[:id])
+  end
+
   private
 
   def topic_params
-    params.require(:topic).permit(:subject)
+    params.require(:topic).permit(:subject, posts_attributes: [ :id, :body ])
   end
 end
