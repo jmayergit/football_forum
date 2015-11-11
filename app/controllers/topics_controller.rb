@@ -21,11 +21,17 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @op = @topic.posts.first
+  end
+
+  def edit
+    @topic = Topic.find(params[:id])
+    @post = @topic.posts.first
   end
 
   private
 
   def topic_params
-    params.require(:topic).permit(:subject, posts_attributes: [ :id, :body ])
+    params.require(:topic).permit(:subject, :user_id, posts_attributes: [ :id, :body, :user_id ])
   end
 end

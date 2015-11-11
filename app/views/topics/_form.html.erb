@@ -5,9 +5,12 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
   <%= f.text_field :subject, placeholder: "Subject" %><br />
 
   <%= f.fields_for :posts, @post do |ff| %>
+    <%= ff.hidden_field :user_id, value: current_user.id %>
     <%= ff.text_area :body, placeholder: "Body" %>
   <% end %><br />
 
