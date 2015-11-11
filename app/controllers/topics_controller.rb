@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
       flash[:notice] = "Topic successfully created"
       redirect_to topics_path
     else
-      redner :new
+      render :new
     end
   end
 
@@ -27,6 +27,16 @@ class TopicsController < ApplicationController
   def edit
     @topic = Topic.find(params[:id])
     @post = @topic.posts.first
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+    if @topic.update(topic_params)
+      flash[:notice] = "Topic successfully updated"
+      redirect_to topics_path
+    else
+      render :edit
+    end
   end
 
   private

@@ -6,5 +6,5 @@
 
 <h3>Topics List</h3>
 <% @topics.each do |topic| %>
-  <%= topic.subject %> <%= link_to_if user_signed_in?, "Show", topic_path(topic) %><br />
+  <%= topic.subject %> <%= link_to_if user_signed_in?, "Show", topic_path(topic) %> <%= link_to_if (current_user.id == topic.user_id), "Edit", edit_topic_path(topic) %><br />
 <% end %>
