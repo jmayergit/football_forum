@@ -1,7 +1,7 @@
 class CreateTopics < ActiveRecord::Migration
   def change
     create_table :topics do |t|
-      t.string :subject,        default: "Delete"
+      t.string :subject
       t.belongs_to :forum,      index: true
       t.belongs_to :user,       index: true
 
