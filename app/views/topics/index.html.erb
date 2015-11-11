@@ -2,6 +2,8 @@
 <p>Find me in app/views/topics/index.html.erb</p>
 
 
+<%= link_to_if user_signed_in?, "Create Topic", new_topic_path %>
+
 <h3>Topics List</h3>
 <% @topics.each do |topic| %>
   <%= topic.subject %>

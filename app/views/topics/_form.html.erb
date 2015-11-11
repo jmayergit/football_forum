@@ -1,0 +1,11 @@
+<%= form_for @topic do |f| %>
+  <% if @topic.errors.any? %>
+    <div class="errors">
+      There are errors!
+    </div>
+  <% end %>
+
+  <%= f.text_field :subject, placeholder: "Subject" %><br />
+
+  <%= f.submit %>
+<% end %>
