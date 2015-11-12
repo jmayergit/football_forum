@@ -45,7 +45,7 @@ class TopicsController < ApplicationController
     if @topic.destroy
       flash[:notice] = "Topic successfully destroyed"
     else
-      flash[:error] = "Unable to destroy topic"
+      flash[:alert] = "Unable to destroy topic"
     end
 
     redirect_to topics_path
