@@ -2,14 +2,31 @@
 <p>Find me in app/views/topics/index.html.erb</p>
 
 
-<%= link_to_if user_signed_in?, "Create Topic", new_topic_path %>
+<div class="ui centered doubling grid">
+  <%= link_to_if user_signed_in?, "Create Topic", new_topic_path %>
 
-<h3>Topics List</h3>
-<% @topics.each do |topic| %>
-  <%= topic.subject %> <%= link_to "Show", topic_path(topic) %>
-  <% if user_signed_in? %>
-    <%= link_to_if (current_user.id == topic.user_id), "Edit", edit_topic_path(topic) %>
-    <%= link_to_if (current_user.id == topic.user_id), "Delete", { action: "destroy", id: topic.id}, method: :delete  %>
-  <% end %>
-  <br />
-<% end %>
+  <h3>Topics List</h3>
+  <table class="ui striped table">
+    <thead>
+      <tr>
+        <th>
+          Subject
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @topics.each do |topic| %>
+        <tr>
+          <td>
+            <%= topic.subject %> <%= link_to "Show", topic_path(topic) %>
+            <% if user_signed_in? %>
+              <%= link_to_if (current_user.id == topic.user_id), "Edit", edit_topic_path(topic) %>
+              <%= link_to_if (current_user.id == topic.user_id), "Delete", { action: "destroy", id: topic.id}, method: :delete  %>
+            <% end %>
+            <br />
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
