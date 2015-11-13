@@ -16,6 +16,11 @@
 
 @import "semantic-ui";
 
+@font-face {
+  font-family: 'ArvoRegular';
+  src:font-url('arvo/Arvo-Regular.ttf') format('truetype');
+}
+
 a {
   color: rgba(0,0,0,.6);
 }
