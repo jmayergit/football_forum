@@ -2,13 +2,13 @@
 
       <div class="form column">
 
-          <h2 class="dull gold color">Log in</h2>
+          <h2 class="arvo">Log in</h2>
 
           <div class="ui large form">
 
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-              <div class="ui stacked segment">
+              <div id="threed" class="ui segment">
 
                 <div class="field">
                   <%= f.text_field :username, autofocus: true, placeholder: "Username" %>
