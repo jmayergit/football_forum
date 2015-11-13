@@ -16,12 +16,12 @@
               <div id="threed" class="ui segment">
 
                 <div class="field">
-                  <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+                  <%= f.email_field :email, autofocus: true, placeholder: "Email", id: "borderless" %>
                 </div>
 
                 <p id="error_username" class="red hidden">Username contains invalid characters</p>
                 <div class="field">
-                  <%= f.text_field :username, autofocus: true, placeholder: "Username" %>
+                  <%= f.text_field :username, autofocus: true, placeholder: "Username", id: "borderless" %>
                 </div>
 
                 <p id="error_password" class="red hidden">Password is not long enough</p>
@@ -29,16 +29,16 @@
                   <!-- <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>
                   <% end %><br /> -->
-                  <%= f.password_field :password, autocomplete: "off", placeholder: "Password    (8 characters minimum)" %>
+                  <%= f.password_field :password, autocomplete: "off", placeholder: "Password    (8 characters minimum)", id: "borderless" %>
                 </div>
 
                 <p id="error_confirmation" class="red hidden">Passwords do not match</p>
                 <div class="field">
-                  <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation", id: "borderless" %>
                 </div>
 
                 <div class="actions">
-                  <%= f.submit "Sign up", class: "ui fluid large submit button" %>
+                  <%= f.submit "Sign up", id: "contrast", class: "ui fluid large submit button" %>
                 </div>
               </div>
 
@@ -47,7 +47,7 @@
 
           </div>
 
-          <div class="ui tertiary segment">
+          <div id="contrast" class="ui segment">
               <%= render "users/shared/links" %>
           </div>
 

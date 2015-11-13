@@ -46,13 +46,20 @@ p.red {
   color: #996633;
 }
 
-.ui.fluid.large.submit.button {
-  background-color: #ffbb00;
-  color: white;
+#contrast {
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  border-style: solid;
+  border-color: black;
 }
 
-.ui.fluid.large.submit.button:hover {
-  background-color: #dd9922;
+#contrast:hover {
+  background-color: black;
+  color: white;
+  a {
+    color: white;
+  }
 }
 
 input[type="email"] {
@@ -76,4 +83,8 @@ input[type="email"] {
 
 .arvo {
   font-family: ArvoRegular;
+}
+
+#borderless {
+  border-color: white;
 }

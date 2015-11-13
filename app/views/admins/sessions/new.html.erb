@@ -6,14 +6,14 @@
 
     <div class="ui large form">
 
-        <div class="ui stacked segment">
+        <div id="threed" class="ui segment">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field">
-              <%= f.text_field :username, placeholder: "Username" %>
+              <%= f.text_field :username, placeholder: "Username", id: "borderless" %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Password", id: "borderless" %>
             </div>
 
             <% if devise_mapping.rememberable? -%>
@@ -26,13 +26,13 @@
             <% end -%>
 
             <div class="actions">
-              <%= f.submit "Log in", class: "ui fluid large submit button" %>
+              <%= f.submit "Log in", id: "contrast", class: "ui fluid large submit button" %>
             </div>
           <% end %>
         </div>
     </div>
 
-    <div class="ui tartiary segment">
+    <div id="contrast" class="ui segment">
       <%= render "admins/shared/links" %>
     </div>
 

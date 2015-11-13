@@ -11,11 +11,11 @@
               <div id="threed" class="ui segment">
 
                 <div class="field">
-                  <%= f.text_field :username, autofocus: true, placeholder: "Username" %>
+                  <%= f.text_field :username, autofocus: true, placeholder: "Username", id: "borderless" %>
                 </div>
 
                 <div class="field">
-                  <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+                  <%= f.password_field :password, autocomplete: "off", placeholder: "Password", id: "borderless" %>
                 </div>
 
                 <% if devise_mapping.rememberable? -%>
@@ -29,13 +29,13 @@
                 <% end -%>
 
                 <div class="actions">
-                  <%= f.submit "Log in", class: "ui fluid large submit button" %>
+                  <%= f.submit "Log in", id: "contrast", class: "ui fluid large submit button" %>
                 </div>
               <% end %>
               </div>
           </div>
 
-          <div class="ui tertiary segment">
+          <div id="contrast" class="ui segment">
               <%= render "users/shared/links" %>
           </div>
 

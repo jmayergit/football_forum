@@ -15,11 +15,11 @@
 
           <div id="threed" class="ui segment">
             <div class="field">
-              <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+              <%= f.email_field :email, autofocus: true, placeholder: "Email", id: "borderless" %>
             </div>
 
             <div class="actions">
-              <%= f.submit "Send me reset password instructions", class: "ui fluid large submit button" %>
+              <%= f.submit "Send me reset password instructions", id: "contrast", class: "ui fluid large submit button" %>
             </div>
           </div>
         <% end %>
@@ -27,7 +27,7 @@
 
       </div>
 
-      <div class="ui tertiary segment">
+      <div id="contrast" class="ui segment">
         <%= render "users/shared/links" %>
       </div>
     </div>
