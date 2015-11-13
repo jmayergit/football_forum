@@ -14,7 +14,7 @@ module DeviseHelper
                       resource: resource.class.model_name.human.downcase)
 
     html = "
-      <div class='ui negative message'>
+      <div id='contrast' class='ui negative message'>
         <div class='header'>
           #{sentence}
         </div>

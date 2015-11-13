@@ -38,7 +38,7 @@ function clear_if_empty(field) {
 };
 
 function validate_username() {
-  var field = ":input#user_username";
+  var field = ":input[name='user[username]']";
   var username = $(field)[0].value;
   var re = /\W/;
   var valid = !re.test(username);
@@ -63,7 +63,7 @@ function validate_username() {
 };
 
 function validate_password() {
-  var field = ":input#user_password";
+  var field = ":input[name='user[password]']";
   var password = $(field)[0].value;
   var valid = password.length >= 8;
   if (valid) {
@@ -82,9 +82,9 @@ function validate_password() {
 };
 
 function validate_confirmation() {
-  var field = ":input#user_password_confirmation";
+  var field = ":input[name='user[password_confirmation]']";
   var confirmation = $(field)[0].value;
-  var password = $(":input#user_password")[0].value;
+  var password = $(":input[name='user[password]']")[0].value;
   var match = (confirmation === password);
   if (match) {
     if (field in errors) {
@@ -101,6 +101,10 @@ function validate_confirmation() {
   }
 };
 
+function errors_present() {
+  return Object.keys(errors).length > 0;
+};
+
 $(document).on('ready page:load', function(event) {
   // console.log("non-idempotent function");
 });
@@ -110,26 +114,31 @@ $(document).on('page:change', function(event) {
   // only want this behavior on sign up page, not any other form that has
   // username, password, or password confirmation (3)
   if ($(".registrations.new").length > 0) {
-    $(":input#user_username").on("keyup", function(e) {
+    $(":input[name='user[username]']").on("keyup", function(e) {
       validate_username();
     });
 
 
-    $(":input#user_password").on("keyup", function(e) {
+    $(":input[name='user[password]']").on("keyup", function(e) {
       validate_password();
 
-      if (":input#user_password_confirmation" in errors) {
-        validate_confirmation();
-      }
+      validate_confirmation();
     });
 
-    $(":input#user_password").on("blur", function(e) {
-      var field = ":input#user_password";
+    $(":input[name='user[password_confirmation]']").on("keyup", function(e) {
+      validate_confirmation();
+    });
+
+    $(":input[name='user[password]']").on("blur", function(e) {
+      var field = ":input[name='user[password]']";
       clear_if_empty(field);
     });
 
-    $(":input#user_password_confirmation").on("keyup", function(e) {
-      validate_confirmation();
+
+    $(":input[value='Sign up']").on("click", function(e) {
+      if ( errors_present() ) {
+          e.preventDefault();
+      }
     });
   }
 });
