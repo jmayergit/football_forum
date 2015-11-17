@@ -1,3 +1,3 @@
 <% @topics.each do |topic| %>
-  <% link_to topic.subject, topic_path(topic) %>
+  <%= link_to topic.subject, topic_path(topic) %> <br />
 <% end %>

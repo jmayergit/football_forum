@@ -1,10 +1,6 @@
 <%= form_for @topic do |f| %>
-  <% if @topic.errors.any? %>
-    <div class="errors">
-      There are errors! <br />
-      <p>
-        <%= @topic.errors.messages %>
-      </p>
+  <% if errors?(@topic) %>
+    <%= instance_error_messages!(@topic) %>
   <% end %>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
