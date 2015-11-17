@@ -13,7 +13,7 @@ class TopicsController < ApplicationController
 
     if @topic.save
       flash[:notice] = "Topic successfully created"
-      redirect_to topics_path
+      redirect_to topic_path(@topic)
     else
       render :new
     end

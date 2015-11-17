@@ -3,3 +3,5 @@
 
 
 <%= link_to_if user_signed_in?, "Create Topic", new_topic_path( f: @forum.id ) %>
+
+<%= render "forums/topics" %>

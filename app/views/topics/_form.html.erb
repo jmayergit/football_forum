@@ -9,7 +9,15 @@
 
   <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <%= f.hidden_field :forum_id, value: params[:f] %>
+  <!-- need to connect topics to forum, can be done in different ways
+       depending on scenario. No matter the scenario this code will
+       not result in an error and if no forum_id is present Record
+       simply fails to save and error messages are displayed  -->
+  <% if @topic.forum %>
+    <%= f.hidden_field :forum_id, value: @topic.forum.id %>
+  <% else %>
+    <%= f.hidden_field :forum_id, value: params[:f] %>
+  <% end %>
 
   <%= f.text_field :subject, placeholder: "Subject" %><br />
 
