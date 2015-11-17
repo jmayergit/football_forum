@@ -1,11 +1,15 @@
 <%= form_for @topic do |f| %>
   <% if @topic.errors.any? %>
     <div class="errors">
-      There are errors!
-    </div>
+      There are errors! <br />
+      <p>
+        <%= @topic.errors.messages %>
+      </p>
   <% end %>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <%= f.hidden_field :forum_id, value: params[:f] %>
 
   <%= f.text_field :subject, placeholder: "Subject" %><br />
 

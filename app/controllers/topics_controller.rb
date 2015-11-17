@@ -31,6 +31,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
+
     if @topic.update(topic_params)
       flash[:notice] = "Topic successfully updated"
       redirect_to topics_path
@@ -54,6 +55,6 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:subject, :user_id, posts_attributes: [ :id, :body, :user_id ])
+    params.require(:topic).permit(:subject, :user_id, :forum_id, posts_attributes: [ :id, :body, :user_id ])
   end
 end

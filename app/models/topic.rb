@@ -1,7 +1,7 @@
 class Topic < ActiveRecord::Base
   belongs_to :forum
   belongs_to :user
-  has_many :posts, dependent: :destroy
+  has_many :posts, dependent: :destroy, validate: false
 
   accepts_nested_attributes_for :posts
 

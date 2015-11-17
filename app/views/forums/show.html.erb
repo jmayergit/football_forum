@@ -1,2 +1,5 @@
 <h1>Forums#show</h1>
 <p>Find me in app/views/forums/show.html.erb</p>
+
+
+<%= link_to_if user_signed_in?, "Create Topic", new_topic_path( f: @forum.id ) %>
