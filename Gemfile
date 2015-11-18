@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+# This gem does nothing but require two other gems that both set one line of Rails app configuration each.
+gem 'rails_12factor',       group: :production
+
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 
 group :development do
   # mailcatcher super simple smtp server
