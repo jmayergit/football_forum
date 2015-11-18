@@ -36,26 +36,3 @@ body {
   // youtube grey
   // background: #f1f1f1;
 }
-
-.opaque {
-  opacity: 0.98;
-}
-
-.ui.menu {
-  background-color: rgba(128, 128, 128, 0.05);
-  border-radius: 0em;
-}
-
-.ui.menu > .item:first-child {
-  border-radius: 0em;
-}
-
-.ui.menu a.item {
-  border-radius: 0em;
-}
-
-.ui.menu a.item:hover {
-  background-color: rgba(0, 0, 0, 0.85);
-  // color: rgba(255, 255, 255, 0.9);
-  color: rgba(128, 128, 128, 0.95);;
-}
