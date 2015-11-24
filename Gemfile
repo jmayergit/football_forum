@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'bower'
+
 # This gem does nothing but require two other gems that both set one line of Rails app configuration each.
+# And those configurations are essential for assets
 gem 'rails_12factor',       group: :production
 
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
+# gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
 group :development do
   # mailcatcher super simple smtp server
