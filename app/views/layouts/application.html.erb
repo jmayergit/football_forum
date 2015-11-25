@@ -10,7 +10,7 @@
 <body class="<%= controller_name %> <%= action_name %>">
 
   <%= flash_messages! %>
-  <div class="ui borderless menu">
+  <div class="ui borderless stackable menu">
       <% if user_signed_in? %>
         <%= link_to "Sign Out", destroy_user_session_path, {method: :delete, class: "item"} %>
         <%= link_to "Edit", edit_user_registration_path, class: "item" %>
@@ -21,17 +21,9 @@
       <% end %>
 
       <%= link_to "Forums", forums_path, class: "item" %>
-      <%= link_to "More", "", class: "item" %>
   </div>
 
   <div class="ui grid container">
-
-    <div class="one column row">
-      <div class="sixteen wide column">
-      </div>
-    </div>
-
-
     <div class="one column centered row">
       <%= yield %>
     </div>

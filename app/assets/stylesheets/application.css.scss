@@ -25,7 +25,7 @@ a {
   color: black;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   h2 {
     font-size: 1em;
   }
@@ -40,6 +40,18 @@ a {
 
   #contrast {
     font-size: 0.9em;
+  }
+
+  a {
+    font-size: 0.7em;
+  }
+
+  .ui.segment {
+    line-height: 1.2em;
+  }
+
+  label[for="user_remember_me"] {
+    font-size: 0.8em;
   }
 }
 
