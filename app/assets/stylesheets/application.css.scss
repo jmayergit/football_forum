@@ -26,6 +26,24 @@ a {
   color: black;
 }
 
+@media (max-width: 600px) {
+  h2 {
+    font-size: 1em;
+  }
+
+  .ui.menu a.item {
+    font-size: 10px;
+  }
+
+  .ui.large.form {
+    font-size: 0.9em;
+  }
+
+  #contrast {
+    font-size: 0.9em;
+  }
+}
+
 body {
   font-family: ArvoRegular;
   // background: #fffff0;

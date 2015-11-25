@@ -30,10 +30,6 @@ p.red {
   font-style: italic;
 }
 
-.form.column {
-  max-width: 450px;
-}
-
 .dull.gold.color {
   color: #dd9922;
 }
@@ -95,4 +91,13 @@ input[type="email"] {
 #borderless {
   border-color: white;
   border-radius: 0px;
+  box-shadow: 0em 0em 0em 0em white;
+}
+
+.form.column {
+  max-width: 422px;
+}
+
+.ui.grid .centered.row > .column:not(.aligned) {
+    text-align: center;
 }
