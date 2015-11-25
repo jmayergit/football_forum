@@ -9,8 +9,11 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
+// If you need to ensure some particular JavaScript ends up above some other in the concatenated file,
+// require the prerequisite file first in the manifest.
 //
-//
+//= require jquery
 //= require jquery_ujs
+//= require semantic
 //= require turbolinks
 //= require_tree .

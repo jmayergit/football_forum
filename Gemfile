@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-semantic'
+end
+
 # This gem does nothing but require two other gems that both set one line of Rails app configuration each.
 # And those configurations are essential for assets
 gem 'rails_12factor',       group: :production
