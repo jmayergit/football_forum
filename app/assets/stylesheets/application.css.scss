@@ -25,6 +25,11 @@ a {
   color: black;
 }
 
+a:hover {
+  color: rgba(128, 128, 128, 0.95);
+}
+
+/// --- Mobile ---- ////
 @media (max-width: 400px) {
   h2 {
     font-size: 1em;
@@ -42,7 +47,7 @@ a {
     font-size: 0.9em;
   }
 
-  a {
+  .ui.menu a.item {
     font-size: 0.7em;
   }
 
@@ -53,7 +58,12 @@ a {
   label[for="user_remember_me"] {
     font-size: 0.8em;
   }
+
+  .ui.large.table {
+    font-size: 0.8em;
+  }
 }
+/// --- MOBILE ---- ////
 
 body {
   font-family: ArvoRegular;

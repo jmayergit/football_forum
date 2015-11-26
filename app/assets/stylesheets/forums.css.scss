@@ -1,3 +1,25 @@
 // Place all the styles related to the forums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/// mobile < 400px
+thead:first-child {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 400px) {
+  td {
+    background-color: blue;
+  }
+}
+
+/// Computer
+thead:first-child th {
+}
+
+.ui.table thead th{
+  background-color: rgba(0, 0, 0, 0.55);
+}
+.ui.table thead th {
+  color: rgba(128, 128, 128, 0.95);
+}

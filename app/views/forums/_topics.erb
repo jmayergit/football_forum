@@ -1,3 +1,30 @@
-<% @topics.each do |topic| %>
-  <%= link_to topic.subject, topic_path(topic) %> <br />
-<% end %>
+<table class="ui selectable celled striped large table">
+  <thead>
+    <tr>
+      <th>
+        Subject
+      </th>
+      <th>
+        Created By
+      </th>
+      <th>
+        Created At
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @topics.each do |topic| %>
+      <tr>
+        <td>
+          <%= link_to topic.subject, topic_path(topic) %> <br />
+        </td>
+        <td>
+          <%= topic.user.username %>
+        </td>
+        <td>
+          <%= topic.created_at %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
