@@ -1,4 +1,4 @@
-<table class="ui selectable celled striped large table">
+<table class="ui celled striped large table">
   <thead>
     <tr>
       <th>
@@ -8,21 +8,21 @@
         Created By
       </th>
       <th>
-        Created At
+        Replies
       </th>
     </tr>
   </thead>
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
-        <td>
-          <%= link_to topic.subject, topic_path(topic) %> <br />
+        <td class="selectable">
+          <%= link_to topic.subject, topic_path(topic) %>
         </td>
-        <td>
+        <td class="selectable">
           <%= topic.user.username %>
         </td>
         <td>
-          <%= topic.created_at %>
+          <%= topic.posts.count - 1 %>
         </td>
       </tr>
     <% end %>

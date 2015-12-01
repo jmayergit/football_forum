@@ -7,11 +7,15 @@
 
   <!-- need to connect topics to forum, can be done in different ways
        depending on scenario. No matter the scenario this code will
-       not result in an error and if no forum_id is present Record
-       simply fails to save and error messages are displayed  -->
+       not result in a non-flash error and if no forum_id is present then
+       that means user operated outside bounds of applicaation and
+       Record simply fails to save and error messages are displayed  -->
   <% if @topic.forum %>
+    <!-- comes from edit topic link in Topics#index -->
+    <!-- comes from edit topic link in Topics#show -->
     <%= f.hidden_field :forum_id, value: @topic.forum.id %>
   <% else %>
+    <!-- comes from create topic link in Forums#show -->
     <%= f.hidden_field :forum_id, value: params[:f] %>
   <% end %>
 

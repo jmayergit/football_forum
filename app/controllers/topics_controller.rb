@@ -22,6 +22,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @op = @topic.posts.first
+    @posts = @topic.posts.where("id != ?", @op.id)
   end
 
   def edit
@@ -34,7 +35,7 @@ class TopicsController < ApplicationController
 
     if @topic.update(topic_params)
       flash[:notice] = "Topic successfully updated"
-      redirect_to topics_path
+      redirect_to topic_path(@topic)
     else
       render :edit
     end

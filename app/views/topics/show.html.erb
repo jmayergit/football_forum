@@ -10,3 +10,20 @@
     <%= @op.body %>
   </li>
 </ul>
+
+<% if user_signed_in? %>
+  <% if @topic.user.id == current_user.id %>
+    <%= link_to "Edit", edit_topic_path(@topic) %>
+  <% end %>
+  <%= link_to "Reply", new_post_path(t: @topic, reply: @op) %>
+<% end %>
+
+<% @posts.each do |post| %>
+  <div class="" id="<%= post.id %>">
+    <%= post.body %>
+    <% if user_signed_in? %>
+      <%= link_to_if current_user == post.user, "Edit", edit_post_path(post, t: @topic) %>
+      <%= link_to "reply", new_post_path(t: @topic, reply: post) %>
+    <% end %>
+  </div>
+<% end %>
