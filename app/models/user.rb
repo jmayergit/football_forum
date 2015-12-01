@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # associations
   has_one :status, dependent: :destroy
   # validations
-  validates :username, presence: true, username: true, uniqueness: true
+  validates :username, presence: true, username: true, uniqueness: true, length: { in: 4..12 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
