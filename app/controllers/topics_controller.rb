@@ -1,4 +1,7 @@
 class TopicsController < ApplicationController
+  before_action :authorize, only: [:new, :create, :edit, :update]
+  before_action :authenticate_admin!, only: [:index]
+
   def index
     @topics = Topic.all
   end
@@ -57,5 +60,19 @@ class TopicsController < ApplicationController
 
   def topic_params
     params.require(:topic).permit(:subject, :user_id, :forum_id, posts_attributes: [ :id, :body, :user_id ])
+  end
+
+  def authorize
+    authenticate_user!
+    unless current_user.status.mod?
+      authenticate_sanctioned!
+      authenticate_member!
+    end
+  end
+
+  def authenticate_sanctioned!
+  end
+
+  def authenticate_member!
   end
 end

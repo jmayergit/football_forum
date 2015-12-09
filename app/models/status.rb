@@ -7,4 +7,8 @@ class Status < ActiveRecord::Base
   def banned?
     self.value == "banned"
   end
+
+  def mod?
+    self.value == "moderator"
+  end
 end
