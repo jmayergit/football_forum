@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
 
-  resources :forums
-  resources :topics
-  resources :posts
+  resources :forums do
+    resources :topics, only: [:new, :create, :edit, :update]
+  end
+  resources :topics, only: [:index, :show, :destroy] do
+    resources :posts, only: [:new, :create, :edit, :update]
+  end
+  resources :posts, only: [:index, :show, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
