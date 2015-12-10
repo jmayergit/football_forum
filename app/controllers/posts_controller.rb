@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   def new
     @post = Post.new
+    # used to generate submit url, a consequence of nested resources
+    @topic = Topic.find(params[:topic_id])
   end
 
   def create
@@ -18,6 +21,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    # used to generate submit url, a consequence of nested resources
+    @topic = Topic.find(params[:topic_id])
   end
 
   def update

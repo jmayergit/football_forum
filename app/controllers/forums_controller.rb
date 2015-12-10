@@ -22,7 +22,6 @@ class ForumsController < ApplicationController
 
   def show
     @forum = Forum.find(params[:id])
-    @topics = @forum.topics
   end
 
   def edit

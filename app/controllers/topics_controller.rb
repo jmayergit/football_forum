@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :authorize, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :authenticate_admin!, only: [:index]
 
   def index
@@ -9,6 +9,8 @@ class TopicsController < ApplicationController
   def new
     @topic = Topic.new
     @post = @topic.posts.new
+    # used to generate submit url for form
+    @forum = Forum.find(params[:forum_id])
   end
 
   def create
@@ -31,6 +33,8 @@ class TopicsController < ApplicationController
   def edit
     @topic = Topic.find(params[:id])
     @post = @topic.posts.first
+    # used to generate submit url for form
+    @forum = Forum.find(params[:forum_id])
   end
 
   def update

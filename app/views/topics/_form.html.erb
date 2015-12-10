@@ -1,23 +1,11 @@
-<%= form_for @topic do |f| %>
+<%= form_for [@forum, @topic] do |f| %>
   <% if errors?(@topic) %>
     <%= instance_error_messages!(@topic) %>
   <% end %>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <!-- need to connect topics to forum, can be done in different ways
-       depending on scenario. No matter the scenario this code will
-       not result in a non-flash error and if no forum_id is present then
-       that means user operated outside bounds of applicaation and
-       Record simply fails to save and error messages are displayed  -->
-  <% if @topic.forum %>
-    <!-- comes from edit topic link in Topics#index -->
-    <!-- comes from edit topic link in Topics#show -->
-    <%= f.hidden_field :forum_id, value: @topic.forum.id %>
-  <% else %>
-    <!-- comes from create topic link in Forums#show -->
-    <%= f.hidden_field :forum_id, value: params[:f] %>
-  <% end %>
+  <%= f.hidden_field :forum_id, value: params[:forum_id] %>
 
   <%= f.text_field :subject, placeholder: "Subject" %><br />
 

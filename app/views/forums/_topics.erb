@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @topics.each do |topic| %>
+    <% @forum.topics.each do |topic| %>
       <tr>
         <td class="selectable">
           <%= link_to topic.subject, topic_path(topic) %>

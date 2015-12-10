@@ -11,4 +11,8 @@ class Status < ActiveRecord::Base
   def mod?
     self.value == "moderator"
   end
+
+  def unsanctioned?
+    self.value == "unsanctioned"
+  end
 end

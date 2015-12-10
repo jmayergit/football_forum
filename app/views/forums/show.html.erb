@@ -4,6 +4,6 @@
 <h3>
   <%= @forum.name %>
 </h3>
-<%= link_to_if user_signed_in?, "Create Topic", new_topic_path( f: @forum.id ) %>
+<%= link_to_if user_signed_in?, "Create Topic", new_forum_topic_path(@forum) %>
 
 <%= render "forums/topics" %>

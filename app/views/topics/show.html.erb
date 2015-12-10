@@ -13,17 +13,17 @@
 
 <% if user_signed_in? %>
   <% if @topic.user.id == current_user.id %>
-    <%= link_to "Edit", edit_topic_path(@topic) %>
+    <%= link_to "Edit", edit_forum_topic_path(@topic.forum_id, @topic) %>
   <% end %>
-  <%= link_to "Reply", new_post_path(t: @topic, reply: @op) %>
+  <%= link_to "Reply", new_topic_post_path(@topic) %>
 <% end %>
 
 <% @posts.each do |post| %>
   <div class="" id="<%= post.id %>">
     <%= post.body %>
     <% if user_signed_in? %>
-      <%= link_to_if current_user == post.user, "Edit", edit_post_path(post, t: @topic) %>
-      <%= link_to "reply", new_post_path(t: @topic, reply: post) %>
+      <%= link_to_if current_user == post.user, "Edit", edit_topic_post_path(@topic, post) %>
+      <%= link_to "reply", new_topic_post_path(@topic) %>
     <% end %>
   </div>
 <% end %>
