@@ -9,5 +9,7 @@
     <% @forums.each do |forum| -%>
       <%= content_tag(:option, forum.name, value: forum.id) %>
     <% end %>
-  <% end %>
+  <% end %><br /><br />
+
+  <%= f.submit %>
 <% end %>
