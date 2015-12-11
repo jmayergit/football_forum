@@ -1,0 +1,13 @@
+<%= form_for @membership do |f| %>
+  <%= f.select(:user_id) do %>
+    <% @users.each do |user| -%>
+      <%= content_tag(:option, user.username, value: user.id) %>
+    <% end %>
+  <% end %>
+
+  <%= f.select(:forum_id) do %>
+    <% @forums.each do |forum| -%>
+      <%= content_tag(:option, forum.name, value: forum.id) %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,2 +1,13 @@
 <h1>Memberships#index</h1>
 <p>Find me in app/views/memberships</p>
+
+<h3>Memberships</h3>
+<ul>
+  <% @memberships.each do |membership| %>
+    <li>
+      user: <%= membership.user_id %> forum: <%= membership.forum_id %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Membership", new_membership_path %>
