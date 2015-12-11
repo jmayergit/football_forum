@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   before_create :assign_unsanctioned_status
   # associations
   has_one :status, dependent: :destroy
+  has_many :memberships
   # validations
   validates :username, presence: true, username: true, uniqueness: true, length: { in: 4..12 }
   # Include default devise modules. Others available are:

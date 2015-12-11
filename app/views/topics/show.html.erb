@@ -1,29 +1,35 @@
 <h1>Topics#show</h1>
 <p>Find me in app/views/topics/show.html.erb</p>
 
-<h3>
-  <%= @topic.subject %>
-</h3>
+<table class="ui celled table">
+  <tbody>
+    <tr>
+      <td>
+        <%= @topic.subject %>
 
-<ul>
-  <li>
-    <%= @op.body %>
-  </li>
-</ul>
+        <% if user_signed_in? %>
+          <% if @topic.user.id == current_user.id %>
+            <%= link_to "Edit", edit_forum_topic_path(@topic.forum_id, @topic) %>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <%= @op.body %>
+      </td>
+    </tr>
+    <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <%= post.body %>
+          <% if user_signed_in? %>
+            <%= link_to_if current_user == post.user, "Edit", edit_topic_post_path(@topic, post) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <% if user_signed_in? %>
-  <% if @topic.user.id == current_user.id %>
-    <%= link_to "Edit", edit_forum_topic_path(@topic.forum_id, @topic) %>
-  <% end %>
-  <%= link_to "Reply", new_topic_post_path(@topic) %>
-<% end %>
-
-<% @posts.each do |post| %>
-  <div class="" id="<%= post.id %>">
-    <%= post.body %>
-    <% if user_signed_in? %>
-      <%= link_to_if current_user == post.user, "Edit", edit_topic_post_path(@topic, post) %>
-      <%= link_to "reply", new_topic_post_path(@topic) %>
-    <% end %>
-  </div>
+  <%= link_to "Add Post", new_topic_post_path(@topic) %>
 <% end %>
