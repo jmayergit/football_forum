@@ -2,12 +2,28 @@
 <p>Find me in app/views/memberships</p>
 
 <h3>Memberships</h3>
-<ul>
-  <% @memberships.each do |membership| %>
-    <li>
-      user: <%= membership.user_id %> forum: <%= membership.forum_id %>
-    </li>
-  <% end %>
-</ul>
 
-<%= link_to "New Membership", new_membership_path %>
+<div class="ui four cards">
+  <% @memberships.each do |membership| %>
+
+    <div class="card">
+      <div class="content">
+        <div class="header">
+          <%= membership.user.username %>
+        </div>
+        <div class="meta">
+          <%= membership.created_at %>
+        </div>
+        <div class="description">
+          <%= membership.forum.name %>
+        </div>
+      </div>
+      <%= link_to "Destroy", {action: :destroy, id: membership}, method: :delete %>
+    </div>
+
+  <% end %>
+</div>
+
+<div class="">
+  <%= link_to "New Membership", new_membership_path %>
+</div>

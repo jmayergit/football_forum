@@ -18,7 +18,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
 
     if @topic.save
-      flash[:notice] = "Topic successfully created"
+      flash[:notice] = "Topic successfully created."
       redirect_to topic_path(@topic)
     else
       render :new
@@ -42,7 +42,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
 
     if @topic.update(topic_params)
-      flash[:notice] = "Topic successfully updated"
+      flash[:notice] = "Topic successfully updated."
       redirect_to topic_path(@topic)
     else
       render :edit
@@ -53,9 +53,9 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
 
     if @topic.destroy
-      flash[:notice] = "Topic successfully destroyed"
+      flash[:notice] = "Topic successfully destroyed."
     else
-      flash[:alert] = "Unable to destroy topic"
+      flash[:alert] = "Unable to destroy topic!"
     end
 
     redirect_to topics_path
@@ -71,7 +71,7 @@ class TopicsController < ApplicationController
     authenticate_user!
     unless current_user.status.mod?
       authenticate_sanctioned!
-      # authenticate_member!
+      authenticate_member!
     end
   end
 
@@ -83,6 +83,13 @@ class TopicsController < ApplicationController
   end
 
   def authenticate_member!
+    forum = get_forum
+    if forum.private?
+      unless is_member?(forum.id)
+        flash[:alert] = "You do not have membership to this forum."
+        redirect_to forum_path(forum)
+      end
+    end
   end
 
   def authenticate_owner!
@@ -90,6 +97,15 @@ class TopicsController < ApplicationController
       flash[:alert] = "Unable to Edit Topic."
       redirect_to forum_path(get_forum)
     end
+  end
+
+  def is_member?(forum_id)
+    memberships = current_user.memberships
+    memberships.each do |membership|
+      return true if membership.forum_id == forum_id
+    end
+
+    false
   end
 
   def get_forum
