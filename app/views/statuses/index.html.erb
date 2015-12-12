@@ -1,0 +1,27 @@
+<h1>Statuses#index</h1>
+<p>Find me in app/views/statuses</p>
+
+<table class="ui celled padded table">
+  <thead>
+    <tr>
+      <th>
+        User
+      </th>
+      <th>
+        Status
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @statuses.each do |status| %>
+      <tr>
+        <td>
+          <%= status.user.username %>
+        </td>
+        <td>
+          <%= link_to status.value, edit_status_path(status) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

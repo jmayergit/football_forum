@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
   resources :posts, only: [:index, :show, :destroy]
 
-  resources :memberships
+  resources :memberships, only: [:index, :new, :create, :destroy]
+
+  resources :statuses, only: [:index, :edit, :update]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
