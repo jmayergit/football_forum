@@ -1,15 +1,29 @@
-<%= form_for @membership do |f| %>
-  <%= f.select(:user_id) do %>
-    <% @users.each do |user| -%>
-      <%= content_tag(:option, user.username, value: user.id) %>
-    <% end %>
-  <% end %>
+<div class="twelve wide centered form column">
+  <h2 class="arvo"> Memberships > New </h2>
 
-  <%= f.select(:forum_id) do %>
-    <% @forums.each do |forum| -%>
-      <%= content_tag(:option, forum.name, value: forum.id) %>
-    <% end %>
-  <% end %><br /><br />
+  <div class="ui large form">
+    <div class="threed" class="ui segment">
+      <%= form_for @membership do |f| %>
+        <div class="field">
+          <%= f.select(:user_id) do %>
+            <% @users.each do |user| -%>
+              <%= content_tag(:option, user.username, value: user.id) %>
+            <% end %>
+          <% end %>
+        </div>
 
-  <%= f.submit %>
-<% end %>
+        <div class="field">
+          <%= f.select(:forum_id) do %>
+            <% @forums.each do |forum| -%>
+              <%= content_tag(:option, forum.name, value: forum.id) %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit id: "contrast", class: "ui fluid large submit button"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

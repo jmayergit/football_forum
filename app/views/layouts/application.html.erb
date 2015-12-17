@@ -10,31 +10,21 @@
 <body class="<%= controller_name %> <%= action_name %>">
 
   <%= flash_messages! %>
+
   <div class="black menu">
     <% if user_signed_in? %>
+      <%= link_to "Sign Out", destroy_user_session_path, {method: :delete} %>
+      <%= link_to "Settings", edit_user_registration_path %>
     <% elsif admin_signed_in? %>
       <%= link_to "Memberships", memberships_path, class: "white link" %>
       <%= link_to "Statuses", statuses_path %>
     <% else %>
     <% end %>
   </div>
-  <div class="ui borderless stackable menu">
-      <% if user_signed_in? %>
-        <%= link_to "Sign Out", destroy_user_session_path, {method: :delete, class: "item"} %>
-        <%= link_to "Edit", edit_user_registration_path, class: "item" %>
-      <% elsif admin_signed_in? %>
-        <%= link_to "Sign Out", destroy_admin_session_path, {method: :delete, class: "item"} %>
-      <% else %>
-        <%= link_to "Log In", new_user_session_path, class: "item" %>
-      <% end %>
 
-      <div class="ui simple dropdown item">
-        <i class="sidebar icon"></i>
-        <div class="menu">
-          <div class="item"> <%= link_to "Forums", forums_path, class: "item" %> </div>
-        </div>
-      </div>
-  </div>
+  <%= render "/layouts/menu/mobile" %>
+  <%= render "/layouts/menu/tablet" %>
+  <%= render "/layouts/menu/computer" %>
 
   <div class="ui grid container">
     <div class="one column centered row">

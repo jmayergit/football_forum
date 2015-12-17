@@ -30,7 +30,7 @@ a:hover {
 }
 
 /// --- Mobile ---- ////
-@media (max-width: 400px) {
+@media (max-width: 767px) {
   h2 {
     font-size: 1em;
   }
@@ -62,8 +62,41 @@ a:hover {
   .ui.large.table {
     font-size: 0.8em;
   }
+
+  .black.menu {
+    display: none !important;
+  }
+
+  #tablet {
+    display: none !important;
+  }
+
+  #computer {
+    display: none !important;
+  }
 }
-/// --- MOBILE ---- ////
+
+/// --- Tablet ---- ////
+@media (max-width: 991px) and (min-width: 768px) {
+  #mobile {
+    display: none !important;
+  }
+
+  #computer {
+    display: none !important;
+  }
+}
+
+/// --- Computer --- ////
+@media (min-width: 992px) {
+  #mobile {
+    display: none !important;
+  }
+
+  #tablet {
+    display: none !important;
+  }
+}
 
 body {
   font-family: ArvoRegular;

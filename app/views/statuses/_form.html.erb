@@ -1,6 +1,20 @@
-<%= form_for @status do |f| %>
+<div class="twelve wide centered form column">
+  <h2 class="arvo"> Statuses > Edit </h2>
 
-  <%= f.select(:value, ['unsanctioned', 'sanctioned', 'moderator', 'banned'])  %><br />
+  <div class="ui large form">
 
-  <%= f.submit %>
-<% end %>
+
+    <div class="threed" class="ui segment">
+      <%= form_for @status do |f| %>
+        <div class="field">
+          <%= f.select(:value, ['unsanctioned', 'sanctioned', 'moderator', 'banned'])  %>
+        </div>
+        <div class="actions">
+          <%= f.submit id: "contrast", class: "ui fluid large submit button"%>
+        </div>
+      <% end %>
+    </div>
+
+
+  </div>
+</div>
