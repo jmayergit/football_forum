@@ -1,9 +1,6 @@
 <%= form_for @status do |f| %>
-  <%= f.select(:value) do  %>
-    <% ['unsanctioned', 'sanctioned', 'moderator', 'banned'].each do |s| -%>
-      <%= content_tag(:option, s, value: s) %>
-    <% end %>
-  <% end %><br /><br />
+
+  <%= f.select(:value, ['unsanctioned', 'sanctioned', 'moderator', 'banned'])  %><br />
 
   <%= f.submit %>
 <% end %>

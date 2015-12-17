@@ -8,10 +8,8 @@ end
 # And those configurations are essential for assets
 gem 'rails_12factor',       group: :production
 
-group :development do
-  # mailcatcher super simple smtp server
-  gem 'mailcatcher', '~> 0.6.1'
-end
+# had mailcatcher gem here, insturctions say please don't -- whoops, may cause conflicts
+
 # devise
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

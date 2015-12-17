@@ -50,3 +50,17 @@
 .ui.menu .ui.dropdown .menu > .item {
   padding: 0rem 0rem !important;
 }
+
+.ui.menu {
+  margin: 0em 0em 1em 0em;
+}
+
+.black.menu {
+  background-color: black;
+  padding: 0.3em;
+}
+
+.black.menu a {
+  color: white;
+  padding-left: 16px;
+}
