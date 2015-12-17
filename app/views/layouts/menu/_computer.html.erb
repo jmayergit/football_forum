@@ -1,0 +1,26 @@
+<div class="ui borderless menu" id="computer">
+  <div class="ui simple dropdown item">
+    <span class="large font">Account</span>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item">
+        <% if user_signed_in? || admin_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, {method: :delete, class: "item"} %>
+        <% end %>
+      </div>
+        <% if user_signed_in? %>
+          <div class="item">
+            <%= link_to "Settings", edit_user_registration_path, class: "item" %>
+          </div>
+          <% elsif !(user_signed_in?) && !(admin_signed_in?) %>
+          <div class="item">
+            <%= link_to "Log In", new_user_session_path, class: "item" %>
+          </div>
+        <% end %>
+
+    </div>
+
+  </div>
+
+
+</div>
