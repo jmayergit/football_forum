@@ -4,7 +4,7 @@
     <i class="dropdown icon"></i>
     <div class="menu">
       <div class="item">
-        <% if user_signed_in? || admin_signed_in? %>
+        <% if account_signed_in? %>
           <%= link_to "Sign Out", destroy_user_session_path, {method: :delete, class: "item"} %>
         <% end %>
       </div>
@@ -12,7 +12,7 @@
           <div class="item">
             <%= link_to "Settings", edit_user_registration_path, class: "item" %>
           </div>
-          <% elsif !(user_signed_in?) && !(admin_signed_in?) %>
+          <% elsif !(account_signed_in?) %>
           <div class="item">
             <%= link_to "Log In", new_user_session_path, class: "item" %>
           </div>
