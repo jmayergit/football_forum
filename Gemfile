@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'unread'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-semantic'
 end
