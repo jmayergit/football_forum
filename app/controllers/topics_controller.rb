@@ -1,7 +1,10 @@
 class TopicsController < ApplicationController
-  before_action :authorize_user!, only: [:new, :create, :edit, :update]
-  before_action :authenticate_owner!, only: [:edit, :update]
+  include Authorize
+
+
   before_action :authenticate_admin!, only: [:index]
+  before_action :authorize_user, only: [:new, :create, :edit, :update]
+  # after_action :mark_topic_as_read!, only: [:show]
 
   def index
     @topics = Topic.all
@@ -67,56 +70,13 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:subject, :user_id, :forum_id, posts_attributes: [ :id, :body, :user_id ])
   end
 
-  def authorize_user!
-    authenticate_user!
-    unless current_user.status.mod?
-      authenticate_sanctioned!
-      authenticate_member!
-    end
-  end
-
-  def authenticate_sanctioned!
-    if current_user.status.unsanctioned?
-      flash[:alert] = "You have not been cleared to create topics."
-      redirect_to forum_path(get_forum)
-    end
-  end
-
-  def authenticate_member!
-    forum = get_forum
-    if forum.private?
-      unless is_member?(forum.id)
-        flash[:alert] = "You do not have membership to this forum."
-        redirect_to forum_path(forum)
+  def mark_topic_as_read!
+    if user_signed_in?
+      @posts.each do |post|
+        if !post.read_by(current_user)
+          post.mark_as_read! for: current_user
+        end
       end
     end
-  end
-
-  def authenticate_owner!
-    if current_user.id != get_user_id(get_topic)
-      flash[:alert] = "Unable to Edit Topic."
-      redirect_to forum_path(get_forum)
-    end
-  end
-
-  def is_member?(forum_id)
-    memberships = current_user.memberships
-    memberships.each do |membership|
-      return true if membership.forum_id == forum_id
-    end
-
-    false
-  end
-
-  def get_forum
-    return Forum.find(params[:forum_id])
-  end
-
-  def get_topic
-    return Topic.find(params[:id])
-  end
-
-  def get_user_id(topic)
-    return topic.user.id
   end
 end

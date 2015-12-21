@@ -8,11 +8,15 @@ class Status < ActiveRecord::Base
     self.value == "banned"
   end
 
-  def mod?
+  def moderator?
     self.value == "moderator"
   end
 
   def unsanctioned?
     self.value == "unsanctioned"
+  end
+
+  def sanctioned?
+    self.value == "sanctioned"
   end
 end

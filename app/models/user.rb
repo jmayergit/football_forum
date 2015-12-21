@@ -25,6 +25,28 @@ class User < ActiveRecord::Base
     true
   end
 
+  def moderator?
+    if self.has_status?
+      return self.status.moderator?
+    end
+
+    false
+  end
+
+  def sanctioned?
+    if self.has_status?
+      return self.status.sanctioned?
+    end
+
+    false
+  end
+
+  def member?(forum)
+    memberships = self.memberships.pluck(:forum_id)
+    return memberships.include?(forum.id)
+  end
+
+
   # Devise checks if your model is active by calling model.active_for_authentication?
   # overwritten to include special condition, banned
   def active_for_authentication?
