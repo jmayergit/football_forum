@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   end
 
   def owns?(resource)
-    raise ArgumentError unless (self.is_topic?(resource) || self.is_post?(resource))
+    raise ArgumentError, "Wrong type of arugment (must be Topic or Post)" unless (self.is_topic?(resource) || self.is_post?(resource))
 
     return self.id == resource.user_id
   end
