@@ -17,6 +17,11 @@
       <tr>
         <td class="selectable">
           <%= link_to topic.subject, topic_path(topic) %>
+          <% if user_signed_in? %>
+            <% if topic.posts.last.unread?(current_user) %>
+              UNREAD
+            <% end %>
+          <% end %>
         </td>
         <td class="selectable">
           <%= topic.user.username %>

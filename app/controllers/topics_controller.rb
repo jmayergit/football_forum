@@ -71,5 +71,6 @@ class TopicsController < ApplicationController
   end
 
   def mark_topic_as_read!
+    
   end
 end
