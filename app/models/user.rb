@@ -49,6 +49,21 @@ class User < ActiveRecord::Base
     return memberships.include?(forum.id)
   end
 
+  def is_topic?(resource)
+    resource.class.name == "Topic"
+  end
+
+  def is_post?(resource)
+    resource.class.name == "Post"
+  end
+
+  def owns?(resource)
+    raise ArgumentError unless (self.is_topic?(resource) || self.is_post?(resource))
+
+    return self.id == resource.user_id
+  end
+
+
 
   # Devise checks if your model is active by calling model.active_for_authentication?
   # overwritten to include special condition, banned

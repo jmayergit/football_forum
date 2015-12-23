@@ -7,14 +7,20 @@ module Authorize
         redirect_to forum_path(params[:forum_id]) and return
     end
 
-    unless @forum
-      @forum = Forum.find(params[:forum_id])
-    end
+    @forum = Forum.find(params[:forum_id])
 
     if @forum.private
         unless current_user.member?(@forum)
             flash[:alert] = "You need to be a member before continuing."
             redirect_to forum_path(@forum) and return
+        end
+    end
+
+    if params[:action] == ("edit" || "update")
+        @topic = Topic.find(params[:id])
+        unless current_user.owns?(@topic)
+            flash[:alert] = "You do not have permission edit for this."
+            redirect_to forum_path(@forum)
         end
     end
   end

@@ -1,28 +1,26 @@
 <h1>Topics#show</h1>
 <p>Find me in app/views/topics/show.html.erb</p>
 
+<%= link_to "Back", forum_path(@topic.forum) %>
+
+<div class="">
+  <%= @topic.subject %>
+  <% if user_signed_in? %>
+    <% if @topic.user_id == current_user.id %>
+      <%= link_to "Edit", edit_forum_topic_path(@topic.forum_id, @topic) %>
+    <% end %>
+  <% end %>
+</div>
 <table class="ui celled table">
   <tbody>
-    <tr>
-      <td>
-        <%= @topic.subject %>
-
-        <% if user_signed_in? %>
-          <% if @topic.user.id == current_user.id %>
-            <%= link_to "Edit", edit_forum_topic_path(@topic.forum_id, @topic) %>
-          <% end %>
-        <% end %>
-      </td>
-      <td>
-        <%= @op.body %>
-      </td>
-    </tr>
     <% @posts.each do |post| %>
       <tr>
         <td>
           <%= post.body %>
           <% if user_signed_in? %>
-            <%= link_to_if current_user == post.user, "Edit", edit_topic_post_path(@topic, post) %>
+            <% if current_user == post.user %>
+              <%= link_to "Edit", edit_topic_post_path(@topic, post) %>
+            <% end %>
           <% end %>
         </td>
       </tr>

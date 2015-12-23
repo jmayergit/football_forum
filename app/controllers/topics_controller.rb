@@ -1,10 +1,11 @@
 class TopicsController < ApplicationController
   include Authorize
 
-
+  # Filters have access to the request, response, and all the instance variables
+  # set by other filters in the chain or by the action (in the case of after filters).
   before_action :authenticate_admin!, only: [:index]
   before_action :authorize_user, only: [:new, :create, :edit, :update]
-  # after_action :mark_topic_as_read!, only: [:show]
+  after_action :mark_topic_as_read!, only: [:show]
 
   def index
     @topics = Topic.all
@@ -30,8 +31,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @op = @topic.posts.first
-    @posts = @topic.posts.where("id != ?", @op.id)
+    @posts = @topic.posts
   end
 
   def edit
@@ -71,12 +71,5 @@ class TopicsController < ApplicationController
   end
 
   def mark_topic_as_read!
-    if user_signed_in?
-      @posts.each do |post|
-        if !post.read_by(current_user)
-          post.mark_as_read! for: current_user
-        end
-      end
-    end
   end
 end
