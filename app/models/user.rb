@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
+  # unread
+  acts_as_reader
   # active record callback
   before_create :assign_unsanctioned_status
   # associations
   has_one :status, dependent: :destroy
   has_many :memberships
+  has_many :posts
   # validations
   validates :username, presence: true, username: true, uniqueness: true, length: { in: 4..12 }
   # Include default devise modules. Others available are:
