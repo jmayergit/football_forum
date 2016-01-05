@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :topic
   belongs_to :user
+  has_many :bookmarks
 
   # I created the custom validation before stumbling upon
   # the built in railsy way of validating the associations
