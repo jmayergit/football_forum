@@ -19,7 +19,9 @@
           <%= link_to topic.subject, topic_path(topic) %>
           <% if user_signed_in? %>
             <% if topic.posts.last.unread?(current_user) %>
-              UNREAD
+              <div class="">
+                UNREAD
+              </div>
             <% end %>
           <% end %>
         </td>

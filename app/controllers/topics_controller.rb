@@ -71,6 +71,8 @@ class TopicsController < ApplicationController
   end
 
   def mark_topic_as_read!
-    
+    unless !(user_signed_in?) || (current_user.have_read?(@posts.last))
+      @posts.last.mark_as_read! for: current_user
+    end
   end
 end

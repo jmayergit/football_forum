@@ -1,6 +1,8 @@
 <div class="ui borderless menu" id="computer">
   <div class="ui simple dropdown item">
-    <span class="large font">Account</span>
+    <% if user_signed_in? %>
+      <span class="large font"><%= current_user.username %></span>
+    <% end %>
     <i class="dropdown icon"></i>
     <div class="menu">
       <div class="item">
