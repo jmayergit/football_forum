@@ -14,6 +14,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
 
     if @bookmark.save
+      flash[:notice] = "Bookmark successfully created"
       redirect_to bookmarks_path
     else
       render :new
@@ -24,6 +25,14 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    @bookmark = Bookmark.find(params[:id])
+
+    if @bookmark.destroy
+      flash[:notice] = "Bookmark successfully destroyed"
+      redirect_to bookmarks_path
+    else
+      flash[:alert] = "Unable to destroy bookmark"
+    end
   end
 
   private

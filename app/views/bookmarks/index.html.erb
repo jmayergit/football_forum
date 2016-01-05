@@ -2,5 +2,5 @@
 
 
 <% @bookmarks.each do |bookmark| %>
-  <%= bookmark.post.body %>
+  <%= bookmark.post.body %> <%= link_to "Destroy", {action: :destroy, id: bookmark}, method: :delete %>
 <% end %>
