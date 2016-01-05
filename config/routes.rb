@@ -5,14 +5,20 @@ Rails.application.routes.draw do
   resources :forums do
     resources :topics, only: [:new, :create, :edit, :update]
   end
+
   resources :topics, only: [:index, :show, :destroy] do
     resources :posts, only: [:new, :create, :edit, :update]
   end
-  resources :posts, only: [:index, :show, :destroy]
+
+  resources :posts, only: [:index, :show, :destroy] do
+    resources :bookmarks, only: [:new, :create]
+  end
 
   resources :memberships, only: [:index, :new, :create, :destroy]
 
   resources :statuses, only: [:index, :edit, :update]
+
+  resources :bookmarks, only: [:index, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
