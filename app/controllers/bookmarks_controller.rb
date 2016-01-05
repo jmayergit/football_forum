@@ -6,9 +6,18 @@ class BookmarksController < ApplicationController
   end
 
   def new
+    @bookmark = Bookmark.new
+    @post = Post.find(params[:post_id])
   end
 
   def create
+    @bookmark = Bookmark.new(bookmark_params)
+
+    if @bookmark.save
+      redirect_to bookmarks_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -20,6 +29,6 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.permit(:bookmark).require(:user_id, :post_id)
+    params.require(:bookmark).permit(:user_id, :post_id)
   end
 end
