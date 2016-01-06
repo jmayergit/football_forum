@@ -10,7 +10,7 @@ end
 # And those configurations are essential for assets
 gem 'rails_12factor',       group: :production
 
-# had mailcatcher gem here, insturctions say please don't -- whoops, may cause conflicts
+# had mailcatcher gem here, instrucctions say please don't -- whoops, may cause conflicts
 
 # devise
 gem 'devise'
