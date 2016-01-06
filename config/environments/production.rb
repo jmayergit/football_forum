@@ -1,5 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  ActionMailer::Base.default_url_options = { host: "www.firethecoaches.com" }
+
   ActionMailer::Base.smtp_settings = {
     port:            ENV['MAILGUN_SMTP_PORT'],
     address:         ENV['MAILGUN_SMTP_SERVER'],
