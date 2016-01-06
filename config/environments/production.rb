@@ -1,8 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  ActionMailer::Base.default_url_options = { host: "www.firethecoaches.com" }
+  config.action_mailer.default_url_options = { host: "www.firethecoaches.com" }
 
-  ActionMailer::Base.smtp_settings = {
+  config.action_mailer.smtp_settings = {
     port:            ENV['MAILGUN_SMTP_PORT'],
     address:         ENV['MAILGUN_SMTP_SERVER'],
     username:        ENV['MAILGUN_SMTP_LOGIN'],
@@ -11,7 +11,7 @@ Rails.application.configure do
     authentication:  :plain
   }
 
-  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
 
 
   # Code is not reloaded between requests.
