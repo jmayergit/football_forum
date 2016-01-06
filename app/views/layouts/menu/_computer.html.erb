@@ -25,4 +25,15 @@
   </div>
 
 
+  <div class="ui item">
+    <%= link_to "Forums", forums_path %>
+  </div>
+
+  <% if user_signed_in? %>
+    <div class="ui item">
+      <%= link_to "Bookmarks", bookmarks_path %>
+    </div>
+  <% end %>
+
+
 </div>
