@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  # acts_as_votable
+  acts_as_voter
   # unread
   acts_as_reader
   # active record callback

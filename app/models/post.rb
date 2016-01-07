@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  # acts_as_votable
+  acts_as_votable
   # unread
   acts_as_readable on: :created_at
 
