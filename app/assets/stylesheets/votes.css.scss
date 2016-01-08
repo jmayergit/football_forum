@@ -1,0 +1,51 @@
+// Place all the styles related to the Votes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.arrow.circle.outline.up.icon {
+  color: #2C662D;
+}
+
+.arrow.circle.up.icon {
+  color: #2C662D;
+}
+
+.arrow.circle.outline.up.icon:hover {
+  cursor: pointer;
+  color: #a3c293;
+}
+
+.arrow.circle.outline.down.icon {
+  color: #9F3A38;
+}
+
+.arrow.circle.down.icon {
+  color: #9F3A38;
+}
+
+.arrow.circle.outline.down.icon:hover {
+  cursor: pointer;
+  color: #e0b4b4;
+}
+
+.up.count {
+  font-weight: 900;
+  color: #2C662D;
+}
+
+.up.count:hover {
+  cursor: default;
+}
+
+.down.count {
+  font-weight: 900;
+  color: #9F3A38;
+}
+
+.down.count:hover {
+  cursor: default;
+}
+
+.highlighted {
+
+}

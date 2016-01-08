@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'votes/up'
+
+  get 'votes/down'
+
   devise_for :admins
   devise_for :users
 
@@ -19,6 +23,10 @@ Rails.application.routes.draw do
   resources :statuses, only: [:index, :edit, :update]
 
   resources :bookmarks, only: [:index, :destroy]
+
+  post 'votes/up/:post_id' => 'votes#up'
+
+  post 'votes/down/:post_id' => 'votes#down'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

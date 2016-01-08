@@ -1,0 +1,4 @@
+(<i class="arrow circle <%= 'outline' unless current_user.voted_up_on?(post) %> up icon" id="<%= post.id %>"></i>
+  <span class="up count" id="up<%= post.id %>"><%= post.votes_for.up.size %></span> )
+(<i class="arrow circle <%= 'outline' unless current_user.voted_down_on?(post) %> down icon" id="<%= post.id %>"></i>
+  <span class="down count" id="down<%= post.id %>"><%= post.votes_for.down.size %></span> )

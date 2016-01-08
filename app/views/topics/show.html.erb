@@ -6,25 +6,26 @@
 <div class="">
   <%= @topic.subject %>
   <% if user_signed_in? %>
+
     <% if @topic.user_id == current_user.id %>
       <%= link_to "Edit", edit_forum_topic_path(@topic.forum_id, @topic) %>
     <% end %>
+
   <% end %>
 </div>
+
 <table class="ui celled table">
   <tbody>
     <% @posts.each do |post| %>
+
+
       <tr>
         <td>
-          <%= post.body %>
-          <% if user_signed_in? %>
-            <% if current_user == post.user %>
-              <%= link_to "Edit", edit_topic_post_path(@topic, post) %>
-            <% end %>
-            <%= link_to "Bookmark", new_post_bookmark_path(post) %>
-          <% end %>
+          <%= render partial: "post", locals: { post: post } %>
         </td>
       </tr>
+
+
     <% end %>
   </tbody>
 </table>
