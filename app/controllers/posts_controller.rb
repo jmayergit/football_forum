@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @topic = Topic.find(params[:topic_id])
+
     if @post.save
       flash[:notice] = "Successfully created post"
       redirect_to topic_path(@post.topic)
