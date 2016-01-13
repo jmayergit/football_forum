@@ -33,8 +33,8 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @posts = @topic.posts
 
-    @renderer = Redcarpet::Render::HTML.new(filter_html: true)
-    @markdown = Redcarpet::Markdown.new(@renderer, { superscript: true, underline: true, strikethrough: true, quote: true, highlight: true })
+    @renderer = Redcarpet::Render::HTML.new(filter_html: true, hard_wrap: true)
+    @markdown = Redcarpet::Markdown.new(@renderer, {superscript: true, underline: true, strikethrough: true, quote: true, highlight: true})
   end
 
   def edit
