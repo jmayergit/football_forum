@@ -1,0 +1,111 @@
+<div class="row">
+  <div class="sixteen wide center aligned column">
+      <%= @markdown.render("# _Wiki_").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown_toc.render("### Markdown").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown.render("### Markdown").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown.render("_Quote_").html_safe %>
+    <p>
+      Syntax: > This is a quote
+    </p>
+    <p>
+      output:
+    </p>
+    <%= @markdown.render('> this is a quote').html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown.render("_Links_").html_safe %>
+    <p>
+      Syntax: This is a link to [google](https://www.google.com)
+    </p>
+    <%= @markdown.render("output: This is a link to [google](https://www.google.com)").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown.render("_Underline_").html_safe %>
+    <p>
+      Syntax: _underlined_
+    </p>
+    <%= @markdown.render("output: _underlined_").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown.render("_Strikethrough_").html_safe %>
+    <p>
+      Syntax: ~~good~~
+    </p>
+    <%= @markdown.render("output: ~~good~~").html_safe %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown.render("_Highlighted_").html_safe %>
+    <p>
+      Syntax: ==highlighted text==
+    </p>
+    <%= @markdown.render("output: ==highlighted text==").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown.render("_Superscript_").html_safe %>
+    <p>
+      Syntax: 2^(2nd) place
+    </p>
+    <%= @markdown.render("output: 2^(nd) place").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown.render("_Italic_").html_safe %>
+    <p>
+      Syntax: *italic*
+    </p>
+    <%= @markdown.render("output: *italic*").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown.render("_Bold_").html_safe %>
+    <p>
+      Syntax: **bold**
+    </p>
+    <%= @markdown.render("output: **bold**").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= %>
+    <p>
+
+    </p>
+    <%= %>
+  </div>
+</div>

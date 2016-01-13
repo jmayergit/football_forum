@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'wiki/index'
+
   get 'votes/up'
 
   get 'votes/down'
