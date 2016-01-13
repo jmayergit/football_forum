@@ -1,4 +1,4 @@
-<%= post.body %>
+<%= @markdown.render(post.body).html_safe %>
 <% if user_signed_in? %>
   <% if current_user == post.user %>
     <%= link_to "Edit", edit_topic_post_path(@topic, post) %>
