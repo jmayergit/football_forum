@@ -1,4 +1,7 @@
 <%= form_for [@topic, @post] do |f| %>
+  <% if errors?(@post) %>
+    <%= instance_error_messages!(@post) %>
+  <% end %>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
 
