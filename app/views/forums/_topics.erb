@@ -1,37 +1,43 @@
-<table class="ui celled striped large table">
-  <thead>
-    <tr>
-      <th>
-        Subject
-      </th>
-      <th>
-        Created By
-      </th>
-      <th>
-        Replies
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @forum.topics.each do |topic| %>
-      <tr>
-        <td class="selectable">
-          <%= link_to topic.subject, topic_path(topic) %>
-          <% if user_signed_in? %>
+<div class="row">
+  <div class="sixteen wide column">
+    <table class="ui celled striped large table">
+      <thead>
+        <tr>
+          <th>
+            Subject
+          </th>
+          <th>
+            Created By
+          </th>
+          <th>
+            Replies
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @topics.each do |topic| %>
+        <tr>
+          <td class="selectable">
+            <%= link_to topic.subject, topic_path(topic) %>
+            <% if user_signed_in? %>
             <% if topic.posts.last.unread?(current_user) %>
-              <div class="">
-                UNREAD
-              </div>
+            <div class="">
+              UNREAD
+            </div>
             <% end %>
-          <% end %>
-        </td>
-        <td class="selectable">
-          <%= topic.user.username %>
-        </td>
-        <td>
-          <%= topic.posts.count - 1 %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <% end %>
+          </td>
+          <td class="selectable">
+            <%= topic.user.username %>
+          </td>
+          <td>
+            <%= topic.posts.count - 1 %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= will_paginate @topics %>
+  </div>
+</div>

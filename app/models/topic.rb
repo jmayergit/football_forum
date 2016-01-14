@@ -9,6 +9,8 @@ class Topic < ActiveRecord::Base
   validates :forum_id, association: true
   validates :user_id, association: true
 
+  self.per_page = 5
+
   private
 
   def to_s

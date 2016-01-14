@@ -11,15 +11,14 @@ Things you may want to cover:
 
 * Configuration
 
-## SMTP Settings
+## Required Configuration
 
-#### mailgun
+#### mailgun smtp settings
 
-Change domain and host parameter to whatever your domain is
-
-/config/environments/production
+Domain and host parameters should reflect your url.
 
 ```ruby
+/config/environments/production
 config.action_mailer.default_url_options = { host: "www.yourdomain.com" }
 
 config.action_mailer.smtp_settings = {
@@ -34,26 +33,38 @@ config.action_mailer.smtp_settings = {
 config.action_mailer.delivery_method = :smtp
 ```
 
-## Devise
+#### devise mailer
 
-#### Mailer
-Configure the email address which will be shown in Devise::Mailer
+Configure the email address which will be shown in Devise::Mailer.
 
-/config/initializers/devise
 ```ruby
+/config/initializers/devise
 config.mailer_sender = 'yourdomain.com'
 ```
 
-## will_paginate
+## Optional Configuration
 
-Define how many posts you want per page
+#### will_paginate
 
-/app/models/post.rb
+Define how many posts you would like per page.
+
 ```ruby
+/app/models/post.rb
 class Post < ActiveRecord::Base
   ...
   self.per_page = 5
   ..
+end
+```
+
+Define how many topics you would like per page.
+
+```ruby
+/app/models/topic.rb
+class Topic < ActiveRecord::Base
+  ...
+  self.per_page = 5
+  ...
 end
 ```
 
