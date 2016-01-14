@@ -31,7 +31,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @posts = @topic.posts
+    @posts = @topic.posts.paginate(page: params[:page])
 
     @renderer = Redcarpet::Render::HTML.new(filter_html: true, hard_wrap: true)
     @markdown = Redcarpet::Markdown.new(@renderer, {superscript: true, underline: true, strikethrough: true, quote: true, highlight: true})

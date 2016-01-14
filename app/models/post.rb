@@ -15,6 +15,8 @@ class Post < ActiveRecord::Base
   # validates_presence_of :topic
   validates :user_id, association: true
 
+  self.per_page = 5
+
   private
 
   def to_s

@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate', '~> 3.0.6'
+
+# super awesome text-to-html gem
+# beautiful Readme, removes user
+# defined html
 gem 'redcarpet'
 
 gem 'acts_as_votable', '~> 0.10.0'

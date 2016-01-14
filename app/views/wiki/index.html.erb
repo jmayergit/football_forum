@@ -7,8 +7,11 @@
 <div class="row">
   <div class="sixteen wide column">
     <%= @markdown_toc.render("### Markdown").html_safe %>
+    <%= @markdown_toc.render("### Rules").html_safe %>
   </div>
 </div>
+
+
 
 <div class="row">
   <div class="sixteen wide column" id="markdown">
@@ -107,5 +110,23 @@
 
     </p>
     <%= %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column" id="rules">
+    <%= @markdown.render("### Rules").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column">
+    <%= @markdown.render("* Rule 1").html_safe %>
+    <%= @markdown.render("* Rule 2").html_safe %>
+    <%= @markdown.render("* Rule 3").html_safe %>
+    <%= @markdown.render("* Rule 4").html_safe %>
+    <%= @markdown.render("* Rule 5
+    * Rule 5a
+    * Rule 5b").html_safe %>
   </div>
 </div>

@@ -30,6 +30,8 @@
   </tbody>
 </table>
 
+<%= will_paginate @posts %>
+
 <% if user_signed_in? %>
   <%= link_to "Add Post", new_topic_post_path(@topic) %>
 <% end %>
