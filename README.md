@@ -17,7 +17,9 @@ Things you may want to cover:
 
 Change domain and host parameter to whatever your domain is
 
---> /config/environments/production
+/config/environments/production
+
+```ruby
 config.action_mailer.default_url_options = { host: "www.yourdomain.com" }
 
 config.action_mailer.smtp_settings = {
@@ -30,28 +32,30 @@ config.action_mailer.smtp_settings = {
 }
 
 config.action_mailer.delivery_method = :smtp
-<---
+```
 
 ## Devise
 
 #### Mailer
 Configure the email address which will be shown in Devise::Mailer
 
---> /config/initializers/devise
-  config.mailer_sender = 'yourdomain.com'
-<--
+/config/initializers/devise
+```ruby
+config.mailer_sender = 'yourdomain.com'
+```
 
 ## will_paginate
 
 Define how many posts you want per page
 
---> /app/models/post.rb
+/app/models/post.rb
+```ruby
 class Post < ActiveRecord::Base
   ...
   self.per_page = 5
   ..
 end
-<--
+```
 
 * Database creation
 
@@ -65,8 +69,8 @@ end
 
 Once deployed you will want to create and Admin account for yourself. To
 protect against just ANYONE signing up for an Admin account I have left out
-the registerable module for Admin, meaning you will have to ssh into heroku
-to manually create you account.
+the registerable module for Admin, meaning you will have to manually create
+from a database connection. Using Heroku? - heroku console
 
 Admins cannot create topics or posts. If you wish to edit the body of
 another users' post, that violates decorum, you must manually do it from the database.
