@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave'
+
 gem 'will_paginate', '~> 3.0.6'
 
 # super awesome text-to-html gem
