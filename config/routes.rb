@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :avatars, only: [:index, :edit, :update]
+
   get 'wiki/index'
 
   get 'votes/up'
