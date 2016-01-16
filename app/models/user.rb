@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :posts
   has_many :bookmarks
+  has_one :avatar, dependent: :destroy
   # validations
   validates :username, presence: true, username: true, uniqueness: true, length: { in: 4..12 }
   # Include default devise modules. Others available are:
