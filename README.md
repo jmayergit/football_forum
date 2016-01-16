@@ -11,6 +11,8 @@ Things you may want to cover:
 
 * Configuration
 
+In development use mailcatcher gem to intercept emails -- DO NOT BUNDLE
+
 ## Required Configuration
 
 #### mailgun smtp settings
