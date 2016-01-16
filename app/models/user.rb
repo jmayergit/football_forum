@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
   acts_as_voter
   # unread
   acts_as_reader
-  # active record callback
+  # active record callbacks
   before_create :assign_unsanctioned_status
+  before_create :assign_avatar
   # associations
   has_one :status, dependent: :destroy
   has_many :memberships
@@ -87,5 +88,7 @@ class User < ActiveRecord::Base
     self.status = Status.create()
   end
 
-
+  def assign_avatar
+    self.avatar = Avatar.create()
+  end
 end

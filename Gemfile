@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', :require => 'dotenv/rails-now', group: :development
+
+gem 'fog'
+
 gem 'carrierwave'
 
 gem 'will_paginate', '~> 3.0.6'
