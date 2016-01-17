@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  include Authorize
+
+  before_action :authorize_user_post, only: [:new, :create, :edit, :update]
+
   def new
     @post = Post.new
     # used to generate submit url, a consequence of nested resources

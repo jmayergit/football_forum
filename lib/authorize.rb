@@ -1,9 +1,9 @@
 module Authorize
-  def authorize_user
+  def authorize_user_topic
     authenticate_user!
 
     unless (current_user.sanctioned?) || (current_user.moderator?)
-        flash[:alert] = "You need to be approved before continuing."
+        flash[:alert] = "You need approval before continuing."
         redirect_to forum_path(params[:forum_id]) and return
     end
 
@@ -11,7 +11,7 @@ module Authorize
 
     if @forum.private
         unless current_user.member?(@forum)
-            flash[:alert] = "You need to be a member before continuing."
+            flash[:alert] = "You need membership before continuing."
             redirect_to forum_path(@forum) and return
         end
     end
@@ -19,9 +19,36 @@ module Authorize
     if params[:action] == ("edit" || "update")
         @topic = Topic.find(params[:id])
         unless current_user.owns?(@topic)
-            flash[:alert] = "You do not have permission edit for this."
+            flash[:alert] = "You do not have edit permission for this."
             redirect_to forum_path(@forum)
         end
+    end
+  end
+
+  def authorize_user_post
+    authenticate_user!
+
+    @post = Post.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
+    @forum = @topic.forum
+
+    unless current_user.sanctioned? || current_user.moderator?
+      flash[:alert] = "You need approval before continuing."
+      redirect_to topic_path(@topic) and return
+    end
+
+    if @forum.private?
+      unless current_user.member?(@forum)
+        flash[:alert] = "You need membership before continuing."
+        redirect_to topic_path(@topic) and return
+      end
+    end
+
+    if params[:action] == ("edit" || "update")
+      unless current_user.owns?(@post)
+        flash[:alert] = "You do not have edit permission for this."
+        redirect_to topic_path(@topic) and return
+      end
     end
   end
 

@@ -4,7 +4,11 @@ module LinkHelper
   end
 
   def abbreviate(string)
-    return string[0...45] + "..."
+    if string.length >= 45
+      return string[0..45] + "..."
+    end
+
+    string
   end
 
   def ownership
