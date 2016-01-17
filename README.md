@@ -11,7 +11,16 @@ Things you may want to cover:
 
 * Configuration
 
-In development use mailcatcher gem to intercept emails -- DO NOT BUNDLE
+In development use mailcatcher gem to intercept emails and install the gem
+from your terminal, that is, use this command:
+
+bundle gem install mailcatcher
+
+but do not, according to the gem's developer, place it in your gemfile.
+
+the Gemfile will likely require rake 10.4.2, if you have activated a more
+recent version, prepend bundle exec to execute a script in the context of
+your current bundle, i.e. rake 10.4.2
 
 ## Required Configuration
 

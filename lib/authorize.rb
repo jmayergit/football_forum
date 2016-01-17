@@ -24,4 +24,15 @@ module Authorize
         end
     end
   end
+
+  def authorize_user_avatar
+    authenticate_user!
+
+    @avatar = Avatar.find(params[:id])
+
+    unless current_user == @avatar.user && ( current_user.sanctioned? || current_user.moderator? )
+      flash[:alert] = "Unauthorized."
+      redirect_to edit_user_registration_path
+    end
+  end
 end

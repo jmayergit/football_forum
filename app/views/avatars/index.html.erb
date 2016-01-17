@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="sixteen wide center aligned column">
+    <% @avatars.each do |avatar| %>
+      <p>
+        <%= avatar.user.username %>
+      </p>
+
+      <img src=" <%= avatar.image.url %> ">
+
+    <% end %>
+  </div>
+</div>

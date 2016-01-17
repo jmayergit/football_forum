@@ -89,6 +89,6 @@ class User < ActiveRecord::Base
   end
 
   def assign_avatar
-    self.avatar = Avatar.create()
+    self.avatar = Avatar.create(image: ImageUploader.new())
   end
 end
