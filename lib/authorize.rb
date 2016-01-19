@@ -28,7 +28,6 @@ module Authorize
   def authorize_user_post
     authenticate_user!
 
-    @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     @forum = @topic.forum
 
@@ -45,6 +44,7 @@ module Authorize
     end
 
     if params[:action] == ("edit" || "update")
+      @post = Post.find(params[:id])
       unless current_user.owns?(@post)
         flash[:alert] = "You do not have edit permission for this."
         redirect_to topic_path(@topic) and return

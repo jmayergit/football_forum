@@ -1,7 +1,7 @@
 <div class="ui borderless menu" id="computer">
   <div class="ui simple dropdown item">
     <% if user_signed_in? %>
-      <span class="large font"><%= current_user.username %></span>
+      <span class="large font"> Account </span>
     <% end %>
     <i class="dropdown icon"></i>
     <div class="menu">
@@ -24,16 +24,25 @@
 
   </div>
 
-
-  <div class="ui item">
-    <%= link_to "Forums", forums_path %>
-  </div>
-
-  <% if user_signed_in? %>
+  <div class="right menu">
     <div class="ui item">
-      <%= link_to "Bookmarks", bookmarks_path %>
+      <%= link_to "Forums", forums_path, class: "large font" %>
     </div>
-  <% end %>
+
+    <% if user_signed_in? %>
+    <div class="ui item">
+      <%= link_to "Bookmarks", bookmarks_path, class: "large font" %>
+    </div>
+
+    <div class="ui item">
+      <%= link_to "My Topics", bookmarks_path, class: "large font" %>
+    </div>
+    <% end %>
+
+    <div class="ui item">
+      <%= link_to "Wiki", wiki_index_path, class: "large font" %>
+    </div>
+  </div>
 
 
 </div>
