@@ -1,6 +1,6 @@
 <%= form_tag topics_path, method: "get", class: "ui form", id: "search_form" do %>
   <p>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Topics..", class: "ui input", id: "asf" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Topics..", class: "ui input" %>
     <%= submit_tag "Search", name: nil, class: "ui button" %>
   </p>
 <% end %>
