@@ -1,5 +1,5 @@
-<div class="twelve wide centered form column">
-    <h2 class="arvo">Log in</h2>
+<div class="sixteen wide center aligned form column">
+    <h2 class="arvo">Sign In</h2>
 
     <div class="ui large form">
 
@@ -13,11 +13,11 @@
 
           <div class="field">
             <%= f.password_field :password, autocomplete: "off", placeholder: "Password", id: "borderless" %>
-          </div>
+          </div><br /><br />
 
           <% if devise_mapping.rememberable? -%>
             <div class="field">
-              <div class="ui row">
+              <div class="ui row" id="rememberable">
               <%= f.check_box :remember_me %>
               <%= f.label :remember_me %>
 

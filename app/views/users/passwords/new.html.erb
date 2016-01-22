@@ -1,6 +1,5 @@
-<div class="ui middle aligned center aligned grid">
-
-
+<div class="row">
+  <div class="sixteen wide center aligned column">
     <div class="form column">
 
 
@@ -11,17 +10,17 @@
 
 
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-          <%= devise_error_messages! %>
+        <%= devise_error_messages! %>
 
-          <div id="threed" class="ui segment">
-            <div class="field">
-              <%= f.email_field :email, autofocus: true, placeholder: "Email", id: "borderless" %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit "Send me reset password instructions", id: "contrast", class: "ui fluid large submit button" %>
-            </div>
+        <div id="threed" class="ui segment">
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, placeholder: "Email", id: "borderless" %>
           </div>
+
+          <div class="actions">
+            <%= f.submit "Reset my password", id: "contrast", class: "ui fluid large submit button" %>
+          </div>
+        </div>
         <% end %>
 
 
@@ -32,4 +31,5 @@
       </div>
     </div>
 
+  </div>
 </div>

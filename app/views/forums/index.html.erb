@@ -1,20 +1,26 @@
 <div class="row">
   <div class="sixteen wide center aligned column">
-    <h1>Forums#index</h1>
-    <p>Find me in app/views/forums/index.html.erb</p>
-    <%= link_to_if admin_signed_in?, "Create Forum", new_forum_path %>
+    <% if admin_signed_in? %>
+      <%= link_to_if admin_signed_in?, "Create Forum", new_forum_path %>
+    <% end %>
   </div>
 </div>
 
 <div class="row">
-  <div class="sixteen wide center aligned column">
-    <h3>Forums List</h3>
-    <% @forums.each do |forum| %>
-      <%= forum.name %>
-      <%= link_to "Show", forum_path(forum) %>
-      <%= link_to_if admin_signed_in?, "Edit", edit_forum_path(forum) %>
-      <%= link_to_if admin_signed_in?, "Destroy", {action: "destroy", id: forum}, method: :delete %>
-      <br />
-    <% end %>
+  <div class="sixteen wide column">
+    <div class="ui relaxed divided list">
+      <% @forums.each do |forum| %>
+      <div class="item">
+        <div class="content">
+          <a class="header"><%= link_to forum.name.upcase, forum_path(forum), class: "large font" %></a>
+          <div class="description">Recent: <%= recent_topic(forum) %> </div>
+          <% if admin_signed_in? %>
+            <%= link_to_if admin_signed_in?, "Edit", edit_forum_path(forum) %>
+            <%= link_to_if admin_signed_in?, "Destroy", {action: "destroy", id: forum}, method: :delete %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -2,16 +2,94 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/// mobile < 400px
+
+#topics_table {
+  margin-top: 0;
+}
+
+/// --- Mobile ---- ////
+@media (max-width: 767px) {
+  #header {
+    // font-size: 15px;
+    margin: 0.5em 0px 0px 0px;
+    // letter-spacing: 7px;
+    // padding: 5px 0px 5px 0px;
+    // border-style: solid;
+    // border-color: black;
+    // word-spacing: 3px;
+  }
+
+  table.ui.table {
+    margin-top: 0em;
+  }
+
+  #replies {
+    text-align: right;
+  }
+
+  #subject {
+    font-size: 18px;
+    padding: 0px 0px 0px 0px;
+  }
+}
+
 thead:first-child {
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-@media (max-width: 400px) {
+/// --- Tablet ---- ////
+@media (max-width: 991px) and (min-width: 768px) {
+  #header{
+    // font-size: 18px;
+    margin: 1em 0px 0px 0px;
+    // letter-spacing: 10px;
+    // padding: 5px 0px 5px 0px;
+    // border-style: solid;
+    // border-color: black;
+    // word-spacing: 5px;
+  }
 
+  table.ui.table {
+    margin-top: 0.5em;
+  }
+
+  #replies {
+    text-align: center;
+  }
+
+  #created_by {
+    text-align: center;
+  }
+
+  thead tr {
+
+  }
 }
 
-/// Computer
+
+
+/// --- Computer --- ////
+@media (min-width: 992px) {
+  #header {
+    margin: 1.5em 0px 0px 0px;
+    padding: 2px 2px 2px 5px;
+    // padding: 5px 0px 5px 0px;
+  }
+
+  #header_name {
+    font-size: 20px;
+    letter-spacing: 13px;
+    word-spacing: 7px;
+  }
+
+  #replies {
+    text-align: center;
+  }
+
+  #created_by {
+    text-align: center;
+  }
+}
 thead:first-child th {
 }
 
@@ -20,4 +98,10 @@ thead:first-child th {
 }
 .ui.table thead th {
   color: rgba(128, 128, 128, 0.95);
+}
+
+#header {
+  width: 50%;
+  border-style: solid;
+  border-color: black;
 }

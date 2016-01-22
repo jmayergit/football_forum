@@ -11,6 +11,14 @@ module LinkHelper
     string
   end
 
+  def recent_topic(forum)
+    if forum.topics.length > 0
+      return forum.topics.last.subject
+    end
+
+    ""
+  end
+
   def ownership
   end
 end

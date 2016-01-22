@@ -1,8 +1,1 @@
-<div class="row">
-  <div class="sixteen wide center aligned column">
-    <h3><%= @forum.name %></h3>
-    <%= link_to_if account_signed_in?, "Create Topic", new_forum_topic_path(@forum) %>
-  </div>
-</div>
-
 <%= render "forums/topics" %>

@@ -1,32 +1,32 @@
-<div class="ui middle aligned center aligned grid">
-
-
+<div class="row">
+  <div class="sixteen wide center aligned column">
     <div class="form column">
       <h2 class="arvo">Resend confirmation instructions</h2>
 
       <div class="ui large form">
         <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-          <%= devise_error_messages! %>
+        <%= devise_error_messages! %>
 
 
-          <div id="threed" class="ui segment">
-            <div class="field">
-              <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Email", id: "borderless" %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit "Resend confirmation instructions", id: "contrast", class: "ui fluid large submit button" %>
-            </div>
+        <div id="threed" class="ui segment">
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Email", id: "borderless" %>
           </div>
+
+          <div class="actions">
+            <%= f.submit "Resend confirmation instructions", id: "contrast", class: "ui fluid large submit button" %>
+          </div>
+        </div>
 
         <% end %>
 
       </div>
 
       <div id="contrast" class="ui segment">
-          <%= render "users/shared/links" %>
+        <%= render "users/shared/links" %>
       </div>
 
     </div>
 
+  </div>
 </div>

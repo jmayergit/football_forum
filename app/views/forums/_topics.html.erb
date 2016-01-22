@@ -1,15 +1,24 @@
 <div class="row">
   <div class="sixteen wide column">
-    <table class="ui celled striped large table">
+    <div id="header">
+      <span id="header_name">
+        <%= @forum.name %>
+      </span>
+      <% if user_signed_in? %>
+        <%= link_to_if account_signed_in?, "Create Topic", new_forum_topic_path(@forum) %>
+      <% end %>
+    </div>
+
+    <table class="ui celled striped large padded table" id="topics_table">
       <thead>
         <tr>
-          <th>
+          <th class="thirteen wide" id="subject">
             Subject
           </th>
-          <th>
+          <th class="three wide" id="created_by">
             Created By
           </th>
-          <th>
+          <th class="three wide" id="replies">
             Replies
           </th>
         </tr>
@@ -18,19 +27,19 @@
         <% @topics.each do |topic| %>
         <tr>
           <td class="selectable">
-            <%= link_to abbreviate(topic.subject), topic_path(topic) %>
+            <%= link_to abbreviate(topic.subject), topic_path(topic), id: "subject" %>
             <% if user_signed_in? %>
-            <% if topic.posts.last.unread?(current_user) %>
-            <div class="">
-              UNREAD
-            </div>
-            <% end %>
+              <% if topic.posts.last.unread?(current_user) %>
+                <div class="">
+                  UNREAD
+                </div>
+              <% end %>
             <% end %>
           </td>
-          <td class="selectable">
+          <td id="created_by">
             <%= topic.user.username %>
           </td>
-          <td>
+          <td id="replies">
             <%= topic.posts.count - 1 %>
           </td>
         </tr>

@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
          :confirmable
 
 
+
+  # not really necessary, but makes views look a little
+  # more readable
+  # -----------
   def has_status?
     self.status ? true : false
   end
@@ -48,7 +52,11 @@ class User < ActiveRecord::Base
 
     false
   end
+  # -------------
 
+
+  # pluck directly converts a database result into a Ruby Array,
+  # without constructing ActiveRecord objects
   def member?(forum)
     memberships = self.memberships.pluck(:forum_id)
     return memberships.include?(forum.id)
