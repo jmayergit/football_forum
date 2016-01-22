@@ -116,6 +116,38 @@ input#borderless {
   input#contrast {
     font-size: 1em;
   }
+
+  input[name='search'].ui.input {
+    max-width: 150px;
+    transition: max-width 1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
+
+  input[name='search'].ui.input:focus {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  input[name='search'].ui.input {
+    max-width: 150px;
+    transition: max-width 1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
+
+  input[name='search'].ui.input:focus {
+    max-width: 300px;
+  }
+}
+
+/// --- Computer --- ////
+@media (min-width: 992px) {
+  input[name='search'].ui.input {
+    max-width: 150px;
+    transition: max-width 1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
+
+  input[name='search'].ui.input:focus {
+    max-width: 300px;
+  }
 }
 
 
@@ -125,13 +157,4 @@ th {
 
 #search_form {
   margin: auto;
-}
-
-input[name='search'].ui.input {
-  max-width: 150px;
-  transition: max-width 1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-}
-
-input[name='search'].ui.input:focus {
-  max-width: 300px;
 }
