@@ -21,21 +21,14 @@
 
 <div class="row">
   <div class="sixteen wide column">
-    <table class="ui celled striped table">
-      <tbody>
+
         <% @posts.each do |post| %>
 
 
-        <tr>
-          <td>
-            <%= render partial: "post", locals: { post: post } %>
-          </td>
-        </tr>
+          <%= render partial: "post", locals: { post: post } %>
 
 
         <% end %>
-      </tbody>
-    </table>
   </div>
 </div>
 

@@ -1,14 +1,32 @@
 
+<table class="ui post table">
+  <tbody>
+    <tr class="colhead_dark">
+      <td colspan="2">
+        <%= post.user.username %>
 
-<%= @markdown.render(post.body).html_safe %>
+        <% if user_signed_in? %>
 
-<% if user_signed_in? %>
+        <span>
+          <% if current_user == post.user %>
+          <%= link_to "Edit", edit_topic_post_path(@topic, post) %>
+          <% end %>
 
-  <% if current_user == post.user %>
-    <%= link_to "Edit", edit_topic_post_path(@topic, post) %>
-  <% end %>
-  
-  <%= link_to "Bookmark", new_post_bookmark_path(post) %>
-  <%= render partial: "arrows", locals: { post: post } %>
+          <%= link_to "Bookmark", new_post_bookmark_path(post) %>
+          <%= render partial: "arrows", locals: { post: post } %>
+        </span>
 
-<% end %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="avi_col">
+        <img class="ui tiny image" id="tablet" src="<%= post.user.avatar.image.url %>">
+        <img class="ui small image" id="computer" src="<%= post.user.avatar.image.url %>">
+      </td>
+      <td class="body_col">
+        <%= @markdown.render(post.body).html_safe %>
+      </td>
+    </tr>
+  </tbody>
+</table>

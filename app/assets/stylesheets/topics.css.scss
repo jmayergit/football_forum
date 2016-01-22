@@ -1,3 +1,29 @@
 // Place all the styles related to the topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+tr.colhead_dark {
+  color: #575757;
+  background: -webkit-gradient(linear, left top,left bottom, from(#ddd), to(#ccc))
+}
+
+td.avi_col {
+  background: #f6f6f6;
+  border-right: #ddd solid 1px;
+}
+
+td.body_col {
+  width: 100%;
+  background: #eee;
+  color: #565656
+  // background: rgba(0, 0, 0, 0.85);
+  // color: rgba(128, 128, 128, 0.95);
+}
+
+table.ui.post.table {
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #aeaeae;
+  border-radius: 0em;
+}
