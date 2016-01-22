@@ -34,6 +34,10 @@
           <%= link_to "Wiki", wiki_index_path, class: "item" %>
         </div>
 
+        <div class="item">
+          <%= link_to "Search", topics_path, class: "item" %>
+        </div>
+
         <% if user_signed_in? %>
           <div class="item">
             <%= link_to "Bookmarks", bookmarks_path, class: "item" %>

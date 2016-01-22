@@ -55,6 +55,13 @@
 .black.menu {
   background-color: black;
   padding: 0.3em;
+  display: -webkit-flex;
+}
+
+.black.menu.right {
+  margin-left: auto !important;
+  margin-right: 1em;
+  padding: 0px 0px 0px 0px;
 }
 
 .black.menu a {

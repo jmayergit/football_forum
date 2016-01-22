@@ -17,12 +17,8 @@
       <tbody>
         <% @topics.each do |topic| %>
         <tr>
-          <td>
-            <%= link_to_if account_signed_in?, topic.subject, topic_path(topic) %>
-            <% if user_signed_in? %>
-            <%= link_to_if (current_user.id == topic.user_id), "Edit", edit_forum_topic_path(topic.forum_id, topic) %>
-            <%= link_to_if (current_user.id == topic.user_id), "Delete", { action: "destroy", id: topic.id}, method: :delete  %>
-            <% end %>
+          <td class="selectable">
+            <%= link_to topic.subject, topic_path(topic) %>
             <br />
           </td>
         </tr>
