@@ -3,12 +3,11 @@ class TopicsController < ApplicationController
 
   # Filters have access to the request, response, and all the instance variables
   # set by other filters in the chain or by the action (in the case of after filters).
-  before_action :authenticate_admin!, only: [:index]
   before_action :authorize_user_topic, only: [:new, :create, :edit, :update]
   after_action :mark_topic_as_read!, only: [:show]
 
   def index
-    @topics = Topic.all
+    @topics = Topic.search(params[:search])
   end
 
   def new
