@@ -5,11 +5,12 @@ class User < ActiveRecord::Base
   acts_as_reader
   # active record callbacks
   before_create :assign_unsanctioned_status
-  before_create :assign_avatar
+  after_create :assign_avatar
   # associations
   has_one :status, dependent: :destroy
   has_many :memberships
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_many :topics, dependent: :destroy
   has_many :bookmarks
   has_one :avatar, dependent: :destroy
   # validations
