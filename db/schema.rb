@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115235722) do
+ActiveRecord::Schema.define(version: 20160123173500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,11 +102,13 @@ ActiveRecord::Schema.define(version: 20160115235722) do
   add_index "statuses", ["user_id"], name: "index_statuses_on_user_id", using: :btree
 
   create_table "topics", force: true do |t|
-    t.string   "subject",    default: "", null: false
+    t.string   "subject",    default: "",    null: false
     t.integer  "forum_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "sticky",     default: false
+    t.boolean  "lock",       default: false
   end
 
   add_index "topics", ["forum_id"], name: "index_topics_on_forum_id", using: :btree

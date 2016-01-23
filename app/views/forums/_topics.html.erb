@@ -24,18 +24,28 @@
         </tr>
       </thead>
       <tbody>
+
+
         <% @topics.each do |topic| %>
         <tr>
           <td class="selectable">
             <%= link_to abbreviate(topic.subject), topic_path(topic), id: "subject" %>
+
             <% if user_signed_in? %>
               <% if topic.posts.last.unread?(current_user) %>
                 <div class="">
                   UNREAD
                 </div>
               <% end %>
+
+              <% if current_user.moderator? %>
+                <i class="<%= 'un' if topic.lock == false || topic.lock == nil %>lock icon"></i>
+              <% end %>
+
             <% end %>
           </td>
+
+
           <td id="created_by">
             <%= topic.user.username %>
           </td>
@@ -44,6 +54,8 @@
           </td>
         </tr>
         <% end %>
+
+
       </tbody>
     </table>
 
