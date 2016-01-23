@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post 'topics/sticky'
+
+  post 'topics/lock'
+
   resources :avatars, only: [:index, :edit, :update]
 
   get 'wiki/index'

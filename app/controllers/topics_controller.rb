@@ -66,10 +66,41 @@ class TopicsController < ApplicationController
     redirect_to topics_path
   end
 
+  def lock
+    @topic = Topic.find(params[:id])
+
+    if @topic.update(lock_params)
+      respond_to do |format|
+        format.json { render json: @topic  }
+      end
+    else
+    end
+
+  end
+
+  def sticky
+    @topic = Topic.find(params[:id])
+
+    if @topic.update(sticky_params)
+      respond_to do |format|
+        format.json { render json: @topic}
+      end
+    else
+    end
+  end
+
   private
 
   def topic_params
     params.require(:topic).permit(:subject, :user_id, :forum_id, posts_attributes: [ :id, :body, :user_id ])
+  end
+
+  def lock_params
+    params.require(:topic).permit(:lock)
+  end
+
+  def sticky_params
+    params.require(:topic).permit(:sticky)
   end
 
   def mark_topic_as_read!

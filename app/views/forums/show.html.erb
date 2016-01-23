@@ -1,1 +1,21 @@
+
 <%= render "forums/topics" %>
+
+<% if user_signed_in? %>
+<% if current_user.moderator? %>
+<div class="row">
+  <div class="sixteen wide column">
+    Mods:<br />
+    <i class="unlock icon"></i> = Topic Unlocked (click to lock)<br />
+    <i class="lock icon"></i> = Topic Locked (click to unlock)<br />
+    <i class="pin icon"></i> = Topic not Stickied (click to sticky)<br />
+    <i class="checkmark icon"></i> = Topic Stickied (click to unsticky)<br />
+    <p>
+      Click on the icons to lock, unlock, sticky and unsticky.
+      Multiple clicks without page refresh will not affect.
+    </p>
+
+  </div>
+</div>
+<% end %>
+<% end %>

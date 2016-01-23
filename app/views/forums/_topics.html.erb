@@ -39,7 +39,8 @@
               <% end %>
 
               <% if current_user.moderator? %>
-                <i class="<%= 'un' if topic.lock == false || topic.lock == nil %>lock icon"></i>
+                <i class="<%= 'un' if topic.lock == false || topic.lock == nil %>lock icon" id="<%= topic.id %>"></i>
+                <i class="<%= if topic.sticky == true then "checkmark" else "pin" end %> icon" id="<%=topic.id%>sticky"></i>
               <% end %>
 
             <% end %>
