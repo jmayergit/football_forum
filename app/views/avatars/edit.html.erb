@@ -1,6 +1,6 @@
 <div class="row">
   <div class="sixteen wide center aligned column">
-    <h1>Avatars#edit</h1><br />
+    <%= instance_error_messages!(@avatar) %>
 
     <p>
       Current:<br />
@@ -13,6 +13,6 @@
 
 <div class="row">
   <div class="sixteen wide center aligned column">
-    <%= render "avatars/form" %>    
+    <%= render "avatars/form" %>
   </div>
 </div>
