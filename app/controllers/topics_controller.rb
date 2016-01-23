@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
   # Filters have access to the request, response, and all the instance variables
   # set by other filters in the chain or by the action (in the case of after filters).
   before_action :authorize_user_topic, only: [:new, :create, :edit, :update]
+  before_action :authorize_mod!, only: [:lock, :sticky]
   after_action :mark_topic_as_read!, only: [:show]
 
   def index
@@ -106,6 +107,18 @@ class TopicsController < ApplicationController
   def mark_topic_as_read!
     unless !(user_signed_in?) || (current_user.have_read?(@posts.last))
       @posts.last.mark_as_read! for: current_user
+    end
+  end
+
+  def authorize_mod!
+    unless user_signed_in?
+      flash[:alert] = "Only mods can mod."
+      redirect_to root_path and return
+    end
+    
+    unless current_user.moderator?
+      flash[:alert] = "Only mods can mod."
+      redirect_to root_path
     end
   end
 end
