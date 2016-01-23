@@ -1,3 +1,21 @@
-<h1>Bookmarks#new</h1>
+<div class="row">
+  <div class="sixteen wide center aligned column">
+
+
+
+    <table class="ui post table">
+      <tbody>
+        <tr>
+          <td class="body_col">
+            <%= @markdown.render(@post.body).html_safe %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
 
 <%= render "bookmarks/form" %>

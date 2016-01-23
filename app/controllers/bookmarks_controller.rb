@@ -3,11 +3,15 @@ class BookmarksController < ApplicationController
 
   def index
     @bookmarks = current_user.bookmarks
+    @renderer = Redcarpet::Render::HTML.new(filter_html: true, hard_wrap: true)
+    @markdown = Redcarpet::Markdown.new(@renderer, {superscript: true, underline: true, strikethrough: true, quote: true, highlight: true})
   end
 
   def new
     @bookmark = Bookmark.new
     @post = Post.find(params[:post_id])
+    @renderer = Redcarpet::Render::HTML.new(filter_html: true, hard_wrap: true)
+    @markdown = Redcarpet::Markdown.new(@renderer, {superscript: true, underline: true, strikethrough: true, quote: true, highlight: true})
   end
 
   def create
