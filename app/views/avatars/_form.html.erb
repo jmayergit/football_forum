@@ -1,7 +1,9 @@
-<%= form_for @avatar do |f| %>
-  <%= f.hidden_field :id, value: @avatar.id %>
 
-  <%= f.file_field :image %><br /><br />
+    <%= form_for @avatar do |f| %>
+      <%= f.hidden_field :id, value: @avatar.id %>
 
-  <%= f.submit %>
-<% end %>
+
+        <%= f.file_field :image, id: "file_field" %><br /><br />
+
+      <%= f.submit %>
+    <% end %>
