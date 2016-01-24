@@ -13,10 +13,10 @@
           <% end %>
 
           <%= link_to "Bookmark", new_post_bookmark_path(post) %>
-          <%= render partial: "arrows", locals: { post: post } %>
         </span>
 
         <% end %>
+        <%= render partial: "arrows", locals: { post: post } %>
       </td>
     </tr>
     <tr>
