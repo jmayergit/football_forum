@@ -34,8 +34,8 @@
 
 <div class="row">
   <div class="sixteen wide center aligned column">
-    <% if user_signed_in? %>
-    <%= link_to "Add Post", new_topic_post_path(@topic) %>
+    <% if user_signed_in? && !@topic.lock %>
+      <%= link_to "Add Post", new_topic_post_path(@topic) %>
     <% end %>
 
     <%= will_paginate @posts %>

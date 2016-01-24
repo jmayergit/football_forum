@@ -50,7 +50,13 @@ module Authorize
         redirect_to topic_path(@topic) and return
       end
     end
+    
+    if @topic.lock
+      flash[:alert] = "This topic has been locked."
+      redirect_to topic_path(@topic) and return
+    end
   end
+
 
   def authorize_user_avatar
     authenticate_user!
