@@ -22,7 +22,7 @@ class ForumsController < ApplicationController
 
   def show
     @forum = Forum.find(params[:id])
-    @topics = @forum.topics.paginate(page: params[:page]).order(:created_at)
+    @topics = @forum.topics.order('sticky DESC, last_post DESC').paginate(page: params[:page])
   end
 
   def edit

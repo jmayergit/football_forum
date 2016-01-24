@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :bookmarks
 
+  after_create :set_last_post_to_now
+
   # I created the custom validation before stumbling upon
   # the built in railsy way of validating the associations
   # however I kept my custom due to its descriptive error msg
@@ -16,6 +18,10 @@ class Post < ActiveRecord::Base
   validates :user_id, association: true
 
   self.per_page = 5
+
+  def set_last_post_to_now
+    topic = self.topic.update(last_post: self.created_at)
+  end
 
   private
 

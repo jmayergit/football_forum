@@ -115,7 +115,7 @@ class TopicsController < ApplicationController
       flash[:alert] = "Only mods can mod."
       redirect_to root_path and return
     end
-    
+
     unless current_user.moderator?
       flash[:alert] = "Only mods can mod."
       redirect_to root_path
