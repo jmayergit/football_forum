@@ -9,10 +9,23 @@
 
   <%= f.text_field :subject, placeholder: "Subject" %><br />
 
-  <%= f.fields_for :posts, @post do |ff| %>
-    <%= ff.hidden_field :user_id, value: current_user.id %>
-    <%= ff.text_area :body, placeholder: "Body" %>
-  <% end %><br />
+  <table class="ui post table" id="form_table">
+    <tbody>
+      <tr>
+        <td class="avi_col">
+          <img class="ui tiny image" id="tablet" src="<%= current_user.avatar.image.url %>">
+          <img class="ui small image" id="computer" src="<%= current_user.avatar.image.url %>">
+          <img class="ui avatar image" id="mobile" src=" <%= current_user.avatar.image.url %> ">
+        </td>
+        <td class="body_col">
+          <%= f.fields_for :posts, @post do |ff| %>
+          <%= ff.hidden_field :user_id, value: current_user.id %>
+          <%= ff.text_area :body, placeholder: "Body" %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
   <%= f.submit %>
 <% end %>

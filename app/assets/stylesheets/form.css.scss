@@ -125,6 +125,10 @@ input#borderless {
   input[name='search'].ui.input:focus {
     max-width: 160px;
   }
+
+  input#topic_subject {
+    width: 65%;
+  }
 }
 
 @media (max-width: 991px) and (min-width: 768px) {
@@ -135,6 +139,10 @@ input#borderless {
 
   input[name='search'].ui.input:focus {
     max-width: 300px;
+  }
+
+  input#topic_subject {
+    width: 40%;
   }
 }
 
@@ -147,6 +155,10 @@ input#borderless {
 
   input[name='search'].ui.input:focus {
     max-width: 300px;
+  }
+
+  input#topic_subject {
+    width: 30%;
   }
 }
 
@@ -161,4 +173,26 @@ th {
 
 #file_field {
   border: 1px solid;
+}
+
+.form.col {
+  width: 100%;
+  background: #eee;
+  color: #565656;
+  vertical-align: top;
+  padding: 1px 1px 1px 1px;
+}
+
+textarea#topic_posts_attributes_0_body {
+  width: 100%;
+  height: 100%;
+}
+
+#form_table {
+  margin-top: 8px;
+}
+
+textarea#post_body {
+  width: 100%;
+  height: 100%;
 }

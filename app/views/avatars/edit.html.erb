@@ -1,13 +1,41 @@
 <div class="row">
   <div class="sixteen wide center aligned column">
     <%= instance_error_messages!(@avatar) %>
+  </div>
+</div>
 
-    <p>
-      current:<br />
-      <img src=" <%=@avatar.image.url %> ">
-    </p>
+<div class="row">
+  <div class="eight wide center aligned column">
+
+    <div class="ui horizontal divider">
+      Mobile
+    </div>
+
+    <img class="ui avatar image" src=" <%=@avatar.image.url %> ">
 
 
+  </div>
+</div>
+<div class="row">
+  <div class="eight wide center aligned column">
+
+    <div class="ui horizontal section divider">
+      Tablet
+    </div>
+    <img class="ui middle aligned tiny image" src=" <%=@avatar.image.url %> ">
+  </div>
+
+</div>
+<div class="center aligned row">
+  <div class="eight wide center aligned column">
+
+    <div class="ui horizontal section divider">
+      Computer
+    </div>
+    <img class="ui middle aligned small image" src=" <%=@avatar.image.url %> ">
+
+    <div class="ui horizontal section divider">
+    </div>
   </div>
 </div>
 
