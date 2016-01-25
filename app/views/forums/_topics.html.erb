@@ -1,22 +1,29 @@
 <div class="row">
   <div class="sixteen wide column">
-    <div id="header">
-      <span id="header_name">
-        <%= @forum.name %>
-      </span>
-      <% if user_signed_in? %>
-        <%= link_to_if account_signed_in?, "Create Topic", new_forum_topic_path(@forum) %>
-      <% end %>
-    </div>
 
     <table class="ui celled striped large padded table" id="topics_table">
       <thead>
+        <tr>
+          <th id="forum_head">
+            <%= @forum.name %>
+            <% if user_signed_in? %>
+              <%= link_to_if account_signed_in?, "Create Topic", new_forum_topic_path(@forum), id: "head_link" %>
+            <% end %>
+          </th>
+
+        </tr>
         <tr>
           <th class="thirteen wide" id="subject">
             Subject
           </th>
           <th class="three wide" id="created_by">
-            Created By
+            Author
+          </th>
+          <th class="three wide", id="status">
+            Status
+          </th>
+          <th class="three wide" id="has_read">
+            Read
           </th>
           <th class="three wide" id="replies">
             Replies
@@ -32,11 +39,6 @@
             <%= link_to abbreviate(topic.subject), topic_path(topic), id: "subject" %>
 
             <% if user_signed_in? %>
-              <% if topic.posts.last.unread?(current_user) %>
-                <div class="">
-                  UNREAD
-                </div>
-              <% end %>
 
               <% if current_user.moderator? %>
                 <i class="<%= 'un' if topic.lock == false || topic.lock == nil %>lock icon" id="<%= topic.id %>"></i>
@@ -47,9 +49,28 @@
           </td>
 
 
+
           <td id="created_by">
             <%= topic.user.username %>
           </td>
+
+          <td id="status">
+            <% if topic.lock %>
+              <i class="lock icon"></i>
+            <% end %>
+            <% if topic.sticky %>
+              <i class="pin icon"></i>
+            <% end %>
+          </td>
+
+          <td id="has_read">
+            <% if user_signed_in? %>
+            <% if !topic.posts.last.unread?(current_user) %>
+            <i class="checkmark icon"></i>
+            <% end %>
+            <% end %>
+          </td>
+
           <td id="replies">
             <%= topic.posts.count - 1 %>
           </td>

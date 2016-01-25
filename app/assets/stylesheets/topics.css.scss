@@ -16,7 +16,8 @@ td.avi_col {
 td.body_col {
   width: 100%;
   background: #eee;
-  color: #565656
+  color: #565656;
+  vertical-align: top;
   // background: rgba(0, 0, 0, 0.85);
   // color: rgba(128, 128, 128, 0.95);
 }
@@ -26,4 +27,19 @@ table.ui.post.table {
   -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid #aeaeae;
   border-radius: 0em;
+}
+
+/// --- Mobile ---- ////
+@media (max-width: 767px) {
+}
+
+/// --- Tablet --- ////
+@media (max-width: 991px) and (min-width: 768px) {
+}
+
+/// --- Computer --- ////
+@media (min-width: 992px) {
+  td.body_col {
+    padding-top: 15px;
+  }
 }

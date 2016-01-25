@@ -3,7 +3,7 @@ module Authorize
     authenticate_user!
 
     unless (current_user.sanctioned?) || (current_user.moderator?)
-        flash[:alert] = "You need approval before continuing."
+        flash[:alert] = "You need approval in order to create topics."
         redirect_to forum_path(params[:forum_id]) and return
     end
 
@@ -32,13 +32,13 @@ module Authorize
     @forum = @topic.forum
 
     unless current_user.sanctioned? || current_user.moderator?
-      flash[:alert] = "You need approval before continuing."
+      flash[:alert] = "You need approval before you can post."
       redirect_to topic_path(@topic) and return
     end
 
     if @forum.private?
       unless current_user.member?(@forum)
-        flash[:alert] = "You need membership before continuing."
+        flash[:alert] = "This Forum requires membership."
         redirect_to topic_path(@topic) and return
       end
     end
@@ -50,7 +50,7 @@ module Authorize
         redirect_to topic_path(@topic) and return
       end
     end
-    
+
     if @topic.lock
       flash[:alert] = "This topic has been locked."
       redirect_to topic_path(@topic) and return
@@ -64,7 +64,7 @@ module Authorize
     @avatar = Avatar.find(params[:id])
 
     unless current_user == @avatar.user && ( current_user.sanctioned? || current_user.moderator? )
-      flash[:alert] = "Unauthorized."
+      flash[:alert] = "You need to be approved before changing your avatar."
       redirect_to edit_user_registration_path
     end
   end

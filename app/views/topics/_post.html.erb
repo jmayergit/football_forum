@@ -23,6 +23,7 @@
       <td class="avi_col">
         <img class="ui tiny image" id="tablet" src="<%= post.user.avatar.image.url %>">
         <img class="ui small image" id="computer" src="<%= post.user.avatar.image.url %>">
+        <img class="ui avatar image" id="mobile" src=" <%= post.user.avatar.image.url %> ">
       </td>
       <td class="body_col">
         <%= @markdown.render(post.body).html_safe %>

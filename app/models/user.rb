@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
   # Whenever active_for_authentication? returns false, Devise asks the reason why your model is inactive using
   # the inactive_message method.
   def inactive_message
-    !banned? ? super : "You have been banned"
+    !banned? ? super : "You have been banned."
   end
 
   private
