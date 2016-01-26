@@ -28,7 +28,7 @@
     <p>
       output:
     </p>
-    <%= @markdown.render('> this is a quote that is very long I hope too long, in fact, so that I may discover some odd behavior that I feel is there but otherwise would only surface in production. My my how dreadful that would be.').html_safe %>
+    <%= @markdown.render('> This is a quote').html_safe %>
   </div>
 </div>
 
@@ -121,12 +121,14 @@
 
 <div class="row">
   <div class="sixteen wide column">
-    <%= @markdown.render("* Rule 1").html_safe %>
-    <%= @markdown.render("* Rule 2").html_safe %>
-    <%= @markdown.render("* Rule 3").html_safe %>
-    <%= @markdown.render("* Rule 4").html_safe %>
-    <%= @markdown.render("* Rule 5
-    * Rule 5a
-    * Rule 5b").html_safe %>
+    <%= @markdown.render("* Treat others respectively.").html_safe %>
+    <%= @markdown.render("* The forum language is English only!").html_safe %>
+    <%= @markdown.render("* Please do not spam. The definition of spam is an irrelevant or advertising post.").html_safe %>
+    <%= @markdown.render("* Please do not post threads text in all CAPITALS since this is considered to be shouting and is not necessary.").html_safe %>
+    <%= @markdown.render("* Insulting and flaming or personal attacks against forum staff will be not tolerated.").html_safe %>
+    <%= @markdown.render("* Profanity is accepted but please keep it classy and releveant.").html_safe %>
+    <%= @markdown.render("* No hacking, and illegal activity.").html_safe %>
+    <%= @markdown.render("* Please do not post inappropriate material, I think everyone understands what I mean by this. The policy goes that if you would not feel comfortable viewing it at work, or in front of children or parents, don't post it!").html_safe %>
+    <%= @markdown.render("* No racial, sexist, ableist or homophobic slurs.").html_safe %>
   </div>
 </div>

@@ -34,6 +34,49 @@ a:hover {
   color: rgba(128, 128, 128, 0.95);
 }
 
+/// ---  mobile portrait ---- ////
+@media (max-width: 450px) {
+  .logo {
+    margin-top: 0.8em;
+    font-size: 23px;
+    margin-left: 44%;
+    color: black;
+    position: absolute;
+  }
+}
+
+/// ---  mobile landscape ---- ////
+@media (min-width: 451px) and (max-width: 533px) {
+  .logo {
+    margin-top: 0.8em;
+    font-size: 24px;
+    margin-left: 45%;
+    color: black;
+    position: absolute;
+  }
+}
+
+/// --- mobile landscape cont'ed ---- ////
+@media (min-width: 534px) and (max-width: 634px) {
+  .logo {
+    margin-top: 0.8em;
+    font-size: 24px;
+    margin-left: 45.7%;
+    color: black;
+    position: absolute;
+  }
+}
+
+@media (min-width: 634px) and (max-width: 767px) {
+  .logo {
+    margin-top: 0.8em;
+    font-size: 24px;
+    margin-left: 46.3%;
+    color: black;
+    position: absolute;
+  }
+}
+
 /// --- Mobile ---- ////
 @media (max-width: 767px) {
   h2 {
@@ -77,14 +120,78 @@ a:hover {
   }
 }
 
-/// --- Tablet ---- ////
-@media (max-width: 991px) and (min-width: 768px) {
+/// --- Tablet Portrait ---- ////
+@media (max-width: 950px) and (min-width: 768px) {
   #mobile {
     display: none !important;
   }
 
   #computer {
     display: none !important;
+  }
+
+  .logo {
+    margin-top: 1.4em;
+    font-size: 30px;
+    margin-left: 46.4%;
+    color: black;
+    position: absolute;
+  }
+}
+
+/// --- Tablet Larger ---- ////
+@media (max-width: 991px) and (min-width: 950px) {
+
+  .logo {
+    margin-top: 1.5em;
+    font-size: 30px;
+    margin-left: 47%;
+    color: black;
+    position: absolute;
+  }
+}
+
+/// --- Tablet All ---- ////
+@media (min-width: 768px) and (max-width: 991px) {
+  #mobile {
+    display: none !important;
+  }
+
+  #computer {
+    display: none !important;
+  }
+}
+
+/// --- Computer Small ---- ////
+@media (min-width: 992px) and (max-width: 1179px) {
+  .logo {
+    margin-top: 1.4em;
+    font-size: 30px;
+    margin-left: 47.3%;
+    color: black;
+    position: absolute;
+  }
+}
+
+/// --- Computer Small ---- ////
+@media (min-width: 1180px) and (max-width: 1500px) {
+  .logo {
+    margin-top: 1.4em;
+    font-size: 30px;
+    margin-left: 47.8%;
+    color: black;
+    position: absolute;
+  }
+}
+
+/// --- Computer Larger ---- ////
+@media (min-width: 1501px) {
+  .logo {
+    margin-top: 1.4em;
+    font-size: 30px;
+    margin-left: 48.2%;
+    color: black;
+    position: absolute;
   }
 }
 
