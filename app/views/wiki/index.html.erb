@@ -8,6 +8,8 @@
   <div class="sixteen wide column">
     <%= @markdown_toc.render("### Markdown").html_safe %>
     <%= @markdown_toc.render("### Rules").html_safe %>
+    <%= @markdown_toc.render("### What happens if I break a rule?").html_safe %>
+    <%= @markdown_toc.render("### Avatar").html_safe %>
   </div>
 </div>
 
@@ -130,5 +132,28 @@
     <%= @markdown.render("* No hacking, and illegal activity.").html_safe %>
     <%= @markdown.render("* Please do not post inappropriate material, I think everyone understands what I mean by this. The policy goes that if you would not feel comfortable viewing it at work, or in front of children or parents, don't post it!").html_safe %>
     <%= @markdown.render("* No racial, sexist, ableist or homophobic slurs.").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column" id="what-happens-if-i-break-a-rule">
+    <%= @markdown.render("### What happens if I break a rule?").html_safe %>
+    <%= @markdown.render("Depending on the severity punishments can be escelated but in general..").html_safe %>
+    <%= @markdown.render("1^(st) rule break (minor offence):").html_safe %>
+    <%= @markdown.render("Corrected, written warning.").html_safe %>
+    <%= @markdown.render("2^(nd) rule break:").html_safe %>
+    <%= @markdown.render("Temporary ban.").html_safe %>
+    <%= @markdown.render("3^(rd) rule break:").html_safe %>
+    <%= @markdown.render("After this it will be assumed you will not learn your lesson, so you will receive a permanent ban.").html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide column" id="avatar">
+    <%= @markdown.render("### Avatar").html_safe %>
+    <%= @markdown.render("Avatars can have a jpg, jpeg, png or gif extension.").html_safe %>
+    <%= @markdown.render("Avatars have a size limit of 200kb, there really is no need
+    to have a larger one than this. To find an appropriately sized avatar simply search google images and, without selecting
+    the picture, drag and drop to your desktop.").html_safe %>
   </div>
 </div>
