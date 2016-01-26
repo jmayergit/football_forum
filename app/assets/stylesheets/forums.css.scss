@@ -4,13 +4,28 @@
 
 
 #topics_table {
-  margin-top: 3em;
+  margin-top: 0em;
+}
+
+#forum_head {
+  border-radius: 0em;
+}
+
+#topics_table {
+  border-radius: 0em;
 }
 
 /// --- Mobile ---- ////
 @media (max-width: 767px) {
   #forum_head {
     text-align: center;
+  }
+
+  #head_link {
+    word-spacing: 2px;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 1em;
   }
 
   table.ui.table {
@@ -33,6 +48,23 @@
   #status {
     text-align: left;
   }
+
+  #forums_header {
+    letter-spacing: 6px;
+  }
+
+  .ui.breadcrumb {
+    margin-left: 0.3em;
+    font-size: 11px;
+  }
+
+  #table_row {
+    padding-top: 0em;
+  }
+
+  #topics_table tr {
+    padding: 0px 0px 0px 0px;
+  }
 }
 
 thead:first-child {
@@ -46,13 +78,14 @@ thead:first-child {
     word-spacing: 2px;
     letter-spacing: 4px;
     color: white;
+    padding: 5px 0px 0px 0px;
   }
 
   #head_link {
     word-spacing: 2px;
     color: white;
     letter-spacing: 2px;
-    font-size: 9px;
+    font-size: 1em;
   }
 
   table.ui.table {
@@ -75,27 +108,44 @@ thead:first-child {
     text-align: center;
   }
 
-  thead tr {
+  #forums_header {
+    letter-spacing: 10px;
+  }
 
+  .ui.breadcrumb {
+    margin-left: 0.4em;
+  }
+
+  h1.for_name {
+    margin-left: 0.2em;
+    margin-top: 0.3em;
+  }
+
+  #table_row {
+    padding-top: 0em;
+  }
+
+  thead.top_tab {
+    background: rgba(0,0,0,0.7);
   }
 }
-
 
 
 /// --- Computer --- ////
 @media (min-width: 992px) {
   #forum_head {
-    text-align: center;
+    text-align: right;
     color: white;
     letter-spacing: 7px;
     word-spacing: 13px;
+    padding: 9px 5px 0px 0px;
   }
 
   #head_link {
     word-spacing: 2px;
     color: white;
     letter-spacing: 2px;
-    font-size: 9px;
+    font-size: 1em;
   }
 
   #header_name {
@@ -119,7 +169,25 @@ thead:first-child {
   #status {
     text-align: center;
   }
+
+  #forums_header {
+    letter-spacing: 10px;
+  }
+
+  .ui.breadcrumb {
+    margin-left: 0.5em;
+  }
+
+  h1.for_name {
+    margin-left: 0.2em;
+    margin-top: 0.4em;
+  }
+
+  thead.top_tab {
+    background: rgba(0,0,0,0.7);
+  }
 }
+
 thead:first-child th {
 }
 

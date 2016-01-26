@@ -3,24 +3,24 @@
       <h2>
         <%= @topic.subject %>
       </h2>
-      <p>
         <% if user_signed_in? %>
           <% if @topic.user_id == current_user.id %>
             <%= link_to "Edit", edit_forum_topic_path(@topic.forum_id, @topic) %>
             <% end %>
         <% end %>
-      </p>
   </div>
 </div>
 
 <div class="row">
   <div class="sixteen wide column">
-    <%= link_to "Back to forum", forum_path(@topic.forum) %>
-  </div>
-</div>
 
-<div class="row">
-  <div class="sixteen wide column">
+        <div class="ui breadcrumb">
+          <%= link_to "Forums", forums_path, class:"section" %>
+          <div class="divider"> / </div>
+          <%= link_to @topic.forum.name, forum_path(@topic.forum), class:"section" %>
+          <div class="divider"> / </div>
+          <div class="active section"> <%= @topic.subject %> </div>
+        </div>
 
         <% @posts.each do |post| %>
 

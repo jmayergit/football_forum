@@ -23,24 +23,36 @@
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
+        </div>
 
+        <div class="ui segment" id="threed">
           <div class="field">
             <%= f.password_field :password, autocomplete: "off", placeholder: "New password", id: "borderless" %>
           </div>
+        </div>
 
+        <div class="ui segment" id="threed">
           <div class="field">
             <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "New password confirmation", id: "borderless" %>
           </div>
+        </div>
 
+        <div class="ui segment" id="threed">
           <div class="field">
             <%= f.password_field :current_password, autocomplete: "off", placeholder: "Current password", id: "borderless" %>
           </div>
-
-          <div class="actions">
-            <%= f.submit "Update", id: "contrast", class: "ui fluid large submit button" %>
-          </div>
-
         </div>
+
+        <div class="ui segment" id="threed">
+          <div class="actions">
+            <%= f.submit "Update", class: "ui input button" %>
+          </div>
+        </div>
+
+
+
+
+
 
         <% end %>
 

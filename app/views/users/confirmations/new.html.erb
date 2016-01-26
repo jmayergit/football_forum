@@ -12,19 +12,22 @@
           <div class="field">
             <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Email", id: "borderless" %>
           </div>
+        </div>
 
+        <div class="ui segment" id="threed">
           <div class="actions">
-            <%= f.submit "Resend confirmation instructions", id: "contrast", class: "ui fluid large submit button" %>
+            <%= f.submit "Resend confirmation instructions", class: "ui submit button" %>
           </div>
+        </div>
+
+        <div id="contrast" class="ui segment">
+          <%= render "users/shared/links" %>
         </div>
 
         <% end %>
 
       </div>
 
-      <div id="contrast" class="ui segment">
-        <%= render "users/shared/links" %>
-      </div>
 
     </div>
 

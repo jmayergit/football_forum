@@ -1,11 +1,22 @@
 <div class="row">
+  <div class="sixteen wide left aligned column">
+    <h1 class="for_name"><%= @forum.name %></h1>
+  </div>
+</div>
+
+<div class="row" id="table_row">
   <div class="sixteen wide column">
 
-    <table class="ui celled striped large padded table" id="topics_table">
-      <thead>
+    <div class="ui breadcrumb">
+      <%= link_to "Forums", forums_path, class:"section" %>
+      <div class="divider"> / </div>
+      <div class="active section"> <%= @forum.name %> </div>
+    </div>
+
+    <table class="ui celled striped large table" id="topics_table">
+      <thead class="top_tab">
         <tr>
-          <th id="forum_head">
-            <%= @forum.name %>
+          <th colspan=5 id="forum_head">
             <% if user_signed_in? %>
               <%= link_to_if account_signed_in?, "Create Topic", new_forum_topic_path(@forum), id: "head_link" %>
             <% end %>

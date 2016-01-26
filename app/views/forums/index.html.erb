@@ -1,10 +1,17 @@
 <div class="row">
+  <div class="sixteen wide left aligned column">
+    <h1 id="forums_header">Football Forums</h1>
+  </div>
+</div>
+
+<div class="row">
   <div class="sixteen wide center aligned column">
     <% if admin_signed_in? %>
       <%= link_to_if admin_signed_in?, "Create Forum", new_forum_path %>
     <% end %>
   </div>
 </div>
+
 
 <div class="row">
   <div class="sixteen wide column">

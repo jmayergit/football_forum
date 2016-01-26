@@ -42,29 +42,6 @@ p.red {
   color: #996633;
 }
 
-#contrast {
-  background-color: white;
-  color: black;
-  border-radius: 0px;
-  border-style: solid;
-  border-color: black;
-  input {
-    border-radius: 0px;
-  }
-}
-
-#contrast:hover {
-  background-color: black;
-  color: white;
-  a {
-    color: white;
-  }
-
-  input {
-    color: black;
-  }
-}
-
 input[type="email"] {
   background-color: black;
   // background-image: url(public/icon_email.png);
@@ -172,7 +149,7 @@ th {
 }
 
 #file_field {
-  border: 1px solid;
+
 }
 
 .form.col {
