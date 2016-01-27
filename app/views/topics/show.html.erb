@@ -19,7 +19,7 @@
           <div class="divider"> / </div>
           <%= link_to @topic.forum.name, forum_path(@topic.forum), class:"section" %>
           <div class="divider"> / </div>
-          <div class="active section"> <%= @topic.subject %> </div>
+          <div class="active section"> <%= abbreviate(@topic.subject, 15) %> </div>
         </div>
 
         <% @posts.each do |post| %>

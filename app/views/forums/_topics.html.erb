@@ -47,7 +47,7 @@
         <% @topics.each do |topic| %>
         <tr>
           <td class="selectable">
-            <%= link_to abbreviate(topic.subject), topic_path(topic), id: "subject" %>
+            <%= link_to abbreviate(topic.subject, 45), topic_path(topic), id: "subject" %>
 
             <% if user_signed_in? %>
 

@@ -79,6 +79,14 @@ a:hover {
 
 /// --- Mobile ---- ////
 @media (max-width: 767px) {
+  #tablet {
+    display: none !important;
+  }
+
+  #computer {
+    display: none !important;
+  }
+
   h2 {
     font-size: 1em;
   }
@@ -106,18 +114,6 @@ a:hover {
   .ui.large.table {
     font-size: 0.8em;
   }
-
-  .black.menu {
-    display: none !important;
-  }
-
-  #tablet {
-    display: none !important;
-  }
-
-  #computer {
-    display: none !important;
-  }
 }
 
 /// --- Tablet Portrait ---- ////
@@ -131,7 +127,7 @@ a:hover {
   }
 
   .logo {
-    margin-top: 1.4em;
+    margin-top: 0.7em;
     font-size: 30px;
     margin-left: 46.4%;
     color: black;
@@ -143,7 +139,7 @@ a:hover {
 @media (max-width: 991px) and (min-width: 950px) {
 
   .logo {
-    margin-top: 1.5em;
+    margin-top: 0.7em;
     font-size: 30px;
     margin-left: 47%;
     color: black;
@@ -162,10 +158,10 @@ a:hover {
   }
 }
 
-/// --- Computer Small ---- ////
+/// --- Computer Smallish ---- ////
 @media (min-width: 992px) and (max-width: 1179px) {
   .logo {
-    margin-top: 1.4em;
+    margin-top: 0.7em;
     font-size: 30px;
     margin-left: 47.3%;
     color: black;
@@ -176,7 +172,7 @@ a:hover {
 /// --- Computer Small ---- ////
 @media (min-width: 1180px) and (max-width: 1500px) {
   .logo {
-    margin-top: 1.4em;
+    margin-top: 0.7em;
     font-size: 30px;
     margin-left: 47.8%;
     color: black;
@@ -187,7 +183,7 @@ a:hover {
 /// --- Computer Larger ---- ////
 @media (min-width: 1501px) {
   .logo {
-    margin-top: 1.4em;
+    margin-top: 0.7em;
     font-size: 30px;
     margin-left: 48.2%;
     color: black;

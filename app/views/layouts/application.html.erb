@@ -9,42 +9,112 @@
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
 
-  <%= flash_messages! %>
+  <div class="ui top inverted menu sidebar">
 
-
-  <div class="logo">
-    <%= link_to "FTC", forums_path %>
+    <div class="item">
+      <% if account_signed_in? %>
+        <i class="large sign out icon"></i><br />
+        <%= link_to "Sign Out", destroy_user_session_path, {method: :delete} %>
+      <% end %>
+    </div>
+    <% if user_signed_in? %>
+      <div class="item">
+        <i class="large settings icon"></i>
+        <%= link_to "Settings", edit_user_registration_path%>
+      </div>
+      <div class="item">
+        <i class="large edit icon"></i>
+        <%= link_to "My Posts", posts_path %>
+      </div>
+      <div class="item">
+        <i class="large bookmark icon"></i>
+        <%= link_to "My Bookmarks", bookmarks_path %>
+      </div>
+    <% elsif !(account_signed_in?) %>
+      <div class="item">
+        <i class="large sign in icon"></i>
+        <%= link_to "Log In", new_user_session_path %>
+      </div>
+      <div class="item">
+        <i class="large write square icon"></i>
+        <%= link_to "Sign Up", new_user_registration_path %>
+      </div>
+      </div>
+    <% end %>
   </div>
 
-  <div class="black menu">
-    <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, {method: :delete} %>
-      <%= link_to "Settings", edit_user_registration_path %>
-    <% elsif admin_signed_in? %>
-      <%= link_to "Memberships", memberships_path, class: "white link" %>
-      <%= link_to "Statuses", statuses_path %>
-    <% else %>
-      <%= link_to "Sign in", new_user_session_path %>
-      <%= link_to "Sign up", new_user_registration_path %>
-    <% end %>
+  <div class="ui right inverted vertical menu sidebar">
 
-    <div class="black menu right">
-      <% if user_signed_in? %>
-        <%= link_to "My Posts", posts_path %>
+      <div class="item">
+        <i class="large list layout icon"></i>
+        <%= link_to "Forums", forums_path %>
+      </div>
+
+      <div class="item">
+        <i class="large search icon"></i>
+        <%= link_to "Search", topics_path %>
+      </div>
+
+      <div class="item">
+        <i class="large info circle icon"></i>
+        <%= link_to "Wiki", wiki_index_path %>
+      </div>
+
+  </div>
+
+  <div class="ui left inverted vertical menu sidebar">
+    <div class="item">
+      <% if account_signed_in? %>
+        <i class="large sign out icon"></i><br />
+        <%= link_to "Sign Out", destroy_user_session_path, {method: :delete} %>
       <% end %>
-      <%= link_to "Search", topics_path %>
+    </div>
+    <% if user_signed_in? %>
+      <div class="item">
+        <i class="large settings icon"></i>
+        <%= link_to "Settings", edit_user_registration_path%>
+      </div>
+      <div class="item">
+        <i class="large edit icon"></i>
+        <%= link_to "My Posts", posts_path %>
+      </div>
+      <div class="item">
+        <i class="large bookmark icon"></i>
+        <%= link_to "My Bookmarks", bookmarks_path %>
+      </div>
+    <% elsif !(account_signed_in?) %>
+      <div class="item">
+        <i class="large sign in icon"></i>
+        <%= link_to "Log In", new_user_session_path %>
+      </div>
+      <div class="item">
+        <i class="large write square icon"></i>
+        <%= link_to "Sign Up", new_user_registration_path %>
+      </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pusher">
+
+    <%= flash_messages! %>
+
+
+    <div class="logo">
+      <%= link_to "FTC", forums_path %>
+    </div>
+
+    <%= render "/layouts/menu/mobile" %>
+    <%= render "/layouts/menu/tablet" %>
+    <%= render "/layouts/menu/computer" %>
+
+    <div class="ui grid container">
+
+      <%= yield %>
+
     </div>
   </div>
 
-  <%= render "/layouts/menu/mobile" %>
-  <%= render "/layouts/menu/tablet" %>
-  <%= render "/layouts/menu/computer" %>
-
-  <div class="ui grid container">
-
-    <%= yield %>
-
-  </div>
 
 
 </body>

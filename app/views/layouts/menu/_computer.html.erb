@@ -1,27 +1,6 @@
 <div class="ui borderless menu" id="computer">
-  <div class="ui simple dropdown item">
-    <span class="large font"> Account </span>
-    <i class="dropdown icon"></i>
-    <div class="menu">
-      <div class="item">
-        <% if account_signed_in? %>
-          <%= link_to "Sign Out", destroy_user_session_path, {method: :delete, class: "item"} %>
-        <% end %>
-      </div>
-        <% if user_signed_in? %>
-          <div class="item">
-            <%= link_to "Settings", edit_user_registration_path, class: "item" %>
-          </div>
-          <% elsif !(account_signed_in?) %>
-          <div class="item">
-            <%= link_to "Log In", new_user_session_path, class: "item" %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "item" %>
-          </div>
-        <% end %>
-
-    </div>
-
-
+  <div class="ui item" id="sidebar_acct">
+    <span class="large font">Account</span>
   </div>
 
   <div class="right menu">
@@ -29,12 +8,9 @@
       <%= link_to "Forums", forums_path, class: "large font" %>
     </div>
 
-    <% if user_signed_in? %>
     <div class="ui item">
-      <%= link_to "Bookmarks", bookmarks_path, class: "large font" %>
+      <%= link_to "Search", topics_path, class: "large font" %>
     </div>
-
-    <% end %>
 
     <div class="ui item">
       <%= link_to "Wiki", wiki_index_path, class: "large font" %>

@@ -52,24 +52,6 @@
   margin: 0em 0em 1em 0em;
 }
 
-.black.menu {
-  background-color: black;
-  padding: 0.3em;
-  display: -webkit-flex;
-  display: flex;
-}
-
-.black.menu.right {
-  margin-left: auto !important;
-  margin-right: 1em;
-  padding: 0px 0px 0px 0px;
-}
-
-.black.menu a {
-  color: white;
-  padding-left: 16px;
-}
-
 .large.font {
   font-size: 20px;
 }
@@ -88,4 +70,8 @@ a.item {
 
 .ui.grid.container {
   box-shadow: 0px 7px 3px rgba(0, 0, 0, 0.50);
+}
+
+#sidebar_acct:hover {
+  cursor: pointer;
 }
