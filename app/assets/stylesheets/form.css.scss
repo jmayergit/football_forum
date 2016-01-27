@@ -88,6 +88,14 @@ input#borderless {
   text-align: left;
 }
 
+.ui.special.cards {
+  margin-top: 3em;
+}
+
+.card {
+  margin: auto !important;
+}
+
 /// --- Mobile ---- ////
 @media (max-width: 767px) {
   input#contrast {

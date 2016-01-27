@@ -4,22 +4,27 @@
 
 
 tr.colhead_dark {
-  color: #575757;
-  background: -webkit-gradient(linear, left top,left bottom, from(#ddd), to(#ccc))
+  background: url("http://i.imgur.com/oWbQCzc.png?1") repeat scroll 0 0 rgb(27,27,29)!important;
+  background-color: rgba(0, 0, 0, 0.76) !important;
+  border-color: rgba(255,255,255,0.04) rgba(255,255,255,0.03) rgba(255,255,255,0.01)!important;
+  color: #bec2c9;
+  border-bottom: 1px solid rgba(255,255,255,0.03)!important;
+  border-left: 1px solid rgba(255,255,255,0.03)!important;
+  border-right: 1px solid rgba(255,255,255,0.03)!important;
 }
 
 td.avi_col {
-  background: #f6f6f6;
-  border-right: #ddd solid 1px;
+  background: url("http://i.imgur.com/oWbQCzc.png?1") repeat scroll 0 0 rgb(27,27,29)!important;
+  background-color: #111111!important;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.5)!important;
 }
 
 td.body_col {
   width: 100%;
-  background: #eee;
-  color: #565656;
   vertical-align: top;
-  // background: rgba(0, 0, 0, 0.85);
-  // color: rgba(128, 128, 128, 0.95);
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.5), 0px -2px 5px rgba(0,0,0,0.2) !important;
+  color: #bec2c9;
+  background: url('http://i.imgur.com/9m7JciK.png?1') top center;
 }
 
 table.ui.post.table {
@@ -28,6 +33,10 @@ table.ui.post.table {
   border: 1px solid #aeaeae;
   border-radius: 0em;
   margin-top: 0em;
+}
+
+table.ui.post.table tbody tr.second {
+  padding: 0px 0px 0px 0px;
 }
 
 /// --- Mobile ---- ////
@@ -52,4 +61,39 @@ table.ui.post.table {
   td.avi_col {
     min-height: 120px
   }
+}
+
+
+.top_sub_head {
+  word-spacing: 10px;
+   letter-spacing: 8px;
+   color: #bec2c9;
+   border-bottom: 1px solid rgba(255,255,255,0.03)!important;
+   border-left: 1px solid rgba(255,255,255,0.03)!important;
+   border-right: 1px solid rgba(255,255,255,0.03)!important;
+   text-align: center;
+   box-shadow: 0 5px 12px rgba(0,0,0,0.5)!important;
+   background: url("http://i.imgur.com/oWbQCzc.png?1") repeat scroll 0 0 rgb(27,27,29)!important;
+   background-color: rgba(0, 0, 0, 0.76) !important;
+}
+
+#head_col {
+  padding: 0px 0px 0px 0px;
+}
+
+.ui.table:not(.unstackable) tr > td {
+  background: url("http://i.imgur.com/oWbQCzc.png?1") repeat scroll 0 0 rgb(27,27,29)!important;
+}
+
+thead.top_tab > tr {
+  background: url("http://i.imgur.com/oWbQCzc.png?1");
+}
+
+.ui.table#topics_indx_table tbody tr td.selectable:hover {
+  background: url("http://i.imgur.com/oWbQCzc.png?1") !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.ui.table#topics_indx_table tbody tr {
+  color: #bec2c9;
 }

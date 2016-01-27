@@ -1,12 +1,34 @@
 <div class="row">
   <div class="sixteen wide center aligned column">
+    <div class="ui special cards">
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <%= link_to "Edit Avatar", edit_avatar_path(current_user.avatar.id), class: "ui inverted button" %>
+              </div>
+            </div>
+          </div>
+          <img src="<%= current_user.avatar.image.url %>">
+        </div>
+        <div class="content">
+          <a class="header"><%= current_user.username %></a>
+          <div class="meta">
+            <span class="date">Registered on <%= current_user.created_at %></span>
+          </div>
+        </div>
+        <div class="extra content">
+          Account Status: <%= current_user.status.value %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="sixteen wide center aligned column">
     <div class="form column">
-
-      <h2 class="arvo"><%= current_user.username %> > Settings</h2>
-
-
-      <%= link_to "Edit Avatar", edit_avatar_path(current_user.avatar.id) %>
-
 
 
       <div class="ui large form">
