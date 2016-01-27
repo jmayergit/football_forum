@@ -4,6 +4,7 @@
 @media (max-width: 767px) {
   #fixed_height {
     height: 80px;
+    margin-top: 2em;
   }
 }
 
@@ -11,6 +12,7 @@
 @media (max-width: 991px) and (min-width: 768px) {
   #fixed_height {
     height: 95px;
+    margin-top: 2.5em;
   }
 }
 
@@ -18,5 +20,6 @@
 @media (min-width: 992px) {
   #fixed_height {
     height: 95px;
+    margin-top: 3em;
   }
 }

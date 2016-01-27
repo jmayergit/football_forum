@@ -78,6 +78,7 @@
 
   #forums_header {
     letter-spacing: 6px;
+    word-spacing: 6px;
   }
 
   #table_row {
@@ -131,6 +132,7 @@ thead:first-child {
 
   #forums_header {
     letter-spacing: 10px;
+    word-spacing: 10px;
   }
 
   .ui.breadcrumb {
@@ -192,6 +194,7 @@ thead:first-child {
 
   #forums_header {
     letter-spacing: 10px;
+    word-spacing: 10px;
   }
 
   .ui.breadcrumb {
@@ -216,4 +219,26 @@ thead:first-child th {
 }
 .ui.table thead th {
   color: rgba(128, 128, 128, 0.95);
+}
+
+#forums_header {
+  color: #bec2c9;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.03) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.03) !important;
+  text-align: center;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5) !important;
+  background: url("http://i.imgur.com/oWbQCzc.png?1") repeat scroll 0 0 #1b1b1d !important;
+  background-color: rgba(0, 0, 0, 0.76) !important;
+}
+
+.for_name {
+  color: #bec2c9;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.03) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.03) !important;
+  text-align: center;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5) !important;
+  background: url("http://i.imgur.com/oWbQCzc.png?1") repeat scroll 0 0 #1b1b1d !important;
+  background-color: rgba(0, 0, 0, 0.76) !important;
 }
