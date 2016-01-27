@@ -1,6 +1,6 @@
 <div class="row" id="fixed_height">
   <div class="sixteen wide left aligned column">
-    <h1 id="forums_header">Football Forums</h1>
+    <h1 id="forums_header"> <%= link_to "Football Forums", forums_path %></h1>
     <% if admin_signed_in? %>
     <%= link_to_if admin_signed_in?, "Create Forum", new_forum_path %>
     <% end %>

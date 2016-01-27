@@ -13,6 +13,11 @@ tr.colhead_dark {
   border-right: 1px solid rgba(255,255,255,0.03)!important;
 }
 
+.ui.table:not(.unstackable) tr {
+  padding-top: 0em !important;
+  padding-bottom: 0em !important;
+}
+
 td.avi_col {
   background: url("http://i.imgur.com/oWbQCzc.png?1") repeat scroll 0 0 rgb(27,27,29)!important;
   background-color: #111111!important;
@@ -96,4 +101,8 @@ thead.top_tab > tr {
 
 .ui.table#topics_indx_table tbody tr {
   color: #bec2c9;
+}
+
+.top_sub_head a {
+  color: #bec2c9 !important;
 }

@@ -1,11 +1,11 @@
 <div class="row" id="fixed_height">
   <div class="sixteen wide center aligned column" id="head_col">
       <h2 class="ui sticky top_sub_head">
-        <%= @topic.subject %>
+        <%= link_to @topic.subject, topic_path(@topic) %>
       </h2>
         <% if user_signed_in? %>
           <% if @topic.user_id == current_user.id %>
-            <%= link_to "Edit", edit_forum_topic_path(@topic.forum_id, @topic) %>
+            <%= link_to "Edit", edit_forum_topic_path(@topic.forum_id, @topic), class: "link_color" %>
             <% end %>
         <% end %>
   </div>

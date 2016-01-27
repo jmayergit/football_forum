@@ -1,6 +1,6 @@
 <div class="row" id="fixed_height">
   <div class="sixteen wide left aligned column">
-    <h1 class="for_name"><%= @forum.name %></h1>
+    <h1 class="for_name"><%= link_to @forum.name, forum_path(@forum) %></h1>
   </div>
 </div>
 
