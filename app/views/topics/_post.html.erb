@@ -7,13 +7,15 @@
 
         <% if user_signed_in? %>
 
-        <span>
           <% if current_user == post.user %>
-            <%= link_to "Edit", edit_topic_post_path(@topic, post) %>
+            <%= link_to edit_topic_post_path(@topic, post) do %>
+              <i class="large edit icon"></i>
+            <% end %>
           <% end %>
 
-          <%= link_to "Bookmark", new_post_bookmark_path(post) %>
-        </span>
+          <%= link_to new_post_bookmark_path(post) do %>
+            <i class="large bookmark icon"></i>
+          <% end %>
 
         <% end %>
         <%= render partial: "arrows", locals: { post: post } %>

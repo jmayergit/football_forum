@@ -30,8 +30,13 @@ a {
   color: black;
 }
 
-a:hover {
-  color: rgba(128, 128, 128, 0.95);
+.logo {
+  text-shadow: #1e70bf 0px 0px 3px;
+}
+
+.logo:hover {
+  text-shadow: none;
+  color: #1370bf;
 }
 
 /// ---  mobile portrait ---- ////

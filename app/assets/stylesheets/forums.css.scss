@@ -20,6 +20,11 @@
   margin-top: 0em
 }
 
+.ui.selectable.inverted.table tbody tr:hover, .ui.inverted.table tbody tr td.selectable:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #1e70bf !important;
+}
+
 /// --- Mobile Portrait ----
 @media (max-width: 400px) {
   .ui.breadcrumb {

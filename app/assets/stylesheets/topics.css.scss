@@ -32,15 +32,24 @@ table.ui.post.table {
 
 /// --- Mobile ---- ////
 @media (max-width: 767px) {
+  td.avi_col {
+  }
 }
 
 /// --- Tablet --- ////
 @media (max-width: 991px) and (min-width: 768px) {
+  td.avi_col {
+    min-height: 106px
+  }
 }
 
 /// --- Computer --- ////
 @media (min-width: 992px) {
   td.body_col {
     padding-top: 15px;
+  }
+
+  td.avi_col {
+    min-height: 120px
   }
 }

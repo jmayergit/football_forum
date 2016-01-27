@@ -1,4 +1,4 @@
-<div class="row" id="fixed height">
+<div class="row" id="fixed_height">
   <div class="sixteen wide center aligned column">
       <h2>
         <%= @topic.subject %>
@@ -35,7 +35,7 @@
 <div class="row">
   <div class="sixteen wide center aligned column">
     <% if user_signed_in? && !@topic.lock %>
-      <%= link_to "Add Post", new_topic_post_path(@topic) %>
+      <%= link_to "Add Post", new_topic_post_path(@topic), class: "ui submit button" %>
     <% end %>
 
     <%= will_paginate @posts %>
