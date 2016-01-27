@@ -1,0 +1,22 @@
+
+
+/// --- Mobile ---- ////
+@media (max-width: 767px) {
+  #fixed_height {
+    height: 80px;
+  }
+}
+
+/// --- Tablet ---- ////
+@media (max-width: 991px) and (min-width: 768px) {
+  #fixed_height {
+    height: 95px;
+  }
+}
+
+/// --- Computer --- ////
+@media (min-width: 992px) {
+  #fixed_height {
+    height: 95px;
+  }
+}

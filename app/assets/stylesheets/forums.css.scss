@@ -15,6 +15,11 @@
   border-radius: 0em;
 }
 
+.ui.inverted.segment {
+  border-radius: 0em;
+  margin-top: 0em
+}
+
 /// --- Mobile Portrait ----
 @media (max-width: 400px) {
   .ui.breadcrumb {
@@ -39,7 +44,7 @@
 
   #head_link {
     word-spacing: 2px;
-    color: white;
+    color: rgba(0,0,0,0.8);
     letter-spacing: 2px;
     font-size: 1em;
   }
@@ -70,7 +75,6 @@
   }
 
   #table_row {
-    padding-top: 0em;
   }
 
   #topics_table tr {
@@ -94,7 +98,7 @@ thead:first-child {
 
   #head_link {
     word-spacing: 2px;
-    color: white;
+    color: black;
     letter-spacing: 2px;
     font-size: 1em;
   }
@@ -133,7 +137,6 @@ thead:first-child {
   }
 
   #table_row {
-    padding-top: 0em;
   }
 
   thead.top_tab {
@@ -154,7 +157,7 @@ thead:first-child {
 
   #head_link {
     word-spacing: 2px;
-    color: white;
+    color: black;
     letter-spacing: 2px;
     font-size: 1em;
   }
