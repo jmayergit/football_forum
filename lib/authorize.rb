@@ -22,12 +22,12 @@ module Authorize
             flash[:alert] = "You do not have edit permission for this."
             redirect_to forum_path(@forum)
         end
+        if @topic.lock
+          flash[:alert] = "This topic has been locked."
+          redirect_to topic_path(@topic) and return
+        end
     end
 
-    if @topic.lock
-      flash[:alert] = "This topic has been locked."
-      redirect_to topic_path(@topic) and return
-    end
   end
 
   def authorize_user_post
