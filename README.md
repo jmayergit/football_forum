@@ -1,64 +1,69 @@
-== README
+# Setup Development
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Fork respo
+2. bundle install
+3. bin/rake db:create db:migrate
 
-Things you may want to cover:
+## Avatar
 
-* Ruby version - 2.0.0
+These instructions are for an AWS S3 account, however almost any cloud storage
+service is supported by FOG
 
-* System dependencies
+1. Create AWS S3 account
+2. Create an S3 bucket -note problems may arise if bucket name contains
+dots or is identical to domain name
+3. Create .env file in root directory
+4. Set the following:
+    ENV['S3_BUCKET_NAME']
+    ENV['REGION']
+    ENV['AWS_SECRET_ACCESS_KEY']
+    ENV['AWS_ACCESS_KEY_ID']
+    ENV['CARRIERWAVE_DEFAULT_URL']
 
-* Configuration
+## Mail
 
-In development use mailcatcher gem to intercept emails and install the gem
-from your terminal, that is, use this command:
 
-bundle gem install mailcatcher
+* In development use the mailcatcher gem to intercept transactional emails
+* Do not bundle the gem
 
-but do not, according to the gem's developer, place it in your gemfile.
+# Setup Production
 
-the Gemfile will likely require rake 10.4.2, if you have activated a more
-recent version, prepend bundle exec to execute a script in the context of
-your current bundle, i.e. rake 10.4.2
+After creating a heroku some ENV variables need to be set before creating database
 
-## Required Configuration
+## Avatar
 
-#### mailgun smtp settings
+~ Same as in production ~
 
-Domain and host parameters should reflect your url.
+## Mail
 
+1. Add heroku [Doucumentatino](https://elements.heroku.com/addons/mailgun)
+2. Set SMTP variables
+    ENV['MAILGUN_SMTP_PORT']
+    ENV['MAILGUN_SMTP_SERVER']
+    ENV['MAILGUN_SMTP_LOGIN']
+    ENV['MAILGUN_SMTP_PASSWORD']
+4. Set host and domain configs
 ```ruby
 # /config/environments/production
 config.action_mailer.default_url_options = { host: "www.yourdomain.com" }
 
 config.action_mailer.smtp_settings = {
-  port:            ENV['MAILGUN_SMTP_PORT'],
-  address:         ENV['MAILGUN_SMTP_SERVER'],
-  user_name:       ENV['MAILGUN_SMTP_LOGIN'],
-  password:        ENV['MAILGUN_SMTP_PASSWORD'],
+  ...
   domain:          'yourdomain.com',
-  authentication:  :plain
+  ...
 }
-
-config.action_mailer.delivery_method = :smtp
 ```
-
-#### devise mailer
-
-Configure the email address which will be shown in Devise::Mailer.
-
+5. Set devise mailer_sender domain
 ```ruby
 # /config/initializers/devise
 config.mailer_sender = 'yourdomain.com'
 ```
 
-## Optional Configuration
+# Configuration
 
-#### will_paginate
+## will_paginate
 
-Define how many posts you would like per page.
-
+Define posts per page.
 ```ruby
 # /app/models/post.rb
 class Post < ActiveRecord::Base
@@ -68,8 +73,7 @@ class Post < ActiveRecord::Base
 end
 ```
 
-Define how many topics you would like per page.
-
+Define topics per page.
 ```ruby
 # /app/models/topic.rb
 class Topic < ActiveRecord::Base
@@ -79,26 +83,31 @@ class Topic < ActiveRecord::Base
 end
 ```
 
-* Database creation
+# App Usage
 
-* Database initialization
+Once deployed you will want to create and Admin account for yourself. These
+are non-registerable and will have to be created manually from a database connection.
 
-* How to run the test suite
+### What Admin can do
 
-* Services (job queues, cache servers, search engines, etc.)
+1. CRUD Forum
+2. Control User Status
+3. Create User Membership
 
-* Deployment instructions
+### What User can do
 
-Once deployed you will want to create and Admin account for yourself. To
-protect against just ANYONE signing up for an Admin account I have left out
-the registerable module for Admin, meaning you will have to manually create
-from a database connection. Using Heroku? - heroku console
+1. Create Topic
+2. Create Post
+3. Vote on Post
+4. Create Bookmark
+5. Upload Avatar
+6. Format Post via markdown
+
+### What Moderator can do (in addition to what User can do)
+
+1. Sticky Topic
+2. Lock Topic
 
 Admins cannot create topics or posts. If you wish to edit the body of
 another users' post, that violates decorum, you must manually do it from the database.
 If you wish to create topics or posts you must register a user account.
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
