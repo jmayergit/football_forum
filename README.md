@@ -13,7 +13,7 @@ service is supported by FOG
 2. Create an S3 bucket -note problems may arise if bucket name contains
 dots or is identical to domain name
 3. Create .env file in root directory
-4. Set the following:
+4. Set the following in .env:
     ENV['S3_BUCKET_NAME']
     ENV['REGION']
     ENV['AWS_SECRET_ACCESS_KEY']
@@ -28,21 +28,29 @@ dots or is identical to domain name
 
 # Setup Production
 
-After creating a heroku some ENV variables need to be set before creating database
+After creating a heroku app, some ENV variables need to be set before creating database
 
 ## Avatar
 
-~ Same as in production ~
+1. Create AWS S3 account
+2. Create an S3 bucket -note problems may arise if bucket name contains
+dots or is identical to domain name
+3. Set the following for your Heroku app:
+    ENV['S3_BUCKET_NAME']
+    ENV['REGION']
+    ENV['AWS_SECRET_ACCESS_KEY']
+    ENV['AWS_ACCESS_KEY_ID']
+    ENV['CARRIERWAVE_DEFAULT_URL']
 
 ## Mail
 
-1. Add heroku [Doucumentatino](https://elements.heroku.com/addons/mailgun)
+1. Add heroku [mailgun](https://elements.heroku.com/addons/mailgun)
 2. Set SMTP variables
     ENV['MAILGUN_SMTP_PORT']
     ENV['MAILGUN_SMTP_SERVER']
     ENV['MAILGUN_SMTP_LOGIN']
     ENV['MAILGUN_SMTP_PASSWORD']
-4. Set host and domain configs
+4. Configure host, domain and mailer sender domain
 ```ruby
 # /config/environments/production
 config.action_mailer.default_url_options = { host: "www.yourdomain.com" }
@@ -52,9 +60,7 @@ config.action_mailer.smtp_settings = {
   domain:          'yourdomain.com',
   ...
 }
-```
-5. Set devise mailer_sender domain
-```ruby
+
 # /config/initializers/devise
 config.mailer_sender = 'yourdomain.com'
 ```
