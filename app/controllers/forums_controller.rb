@@ -2,7 +2,7 @@ class ForumsController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @forums = Forum.all
+    @forums = Forum.order(:name)
   end
 
   def new
