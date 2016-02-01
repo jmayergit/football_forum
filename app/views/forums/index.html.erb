@@ -23,7 +23,7 @@
         <div class="item">
           <div class="content">
             <a class="header"><%= link_to forum.name.upcase, forum_path(forum), class: "large font" %></a>
-            <div class="description">Recent: <%= recent_topic(forum) %> </div>
+            <div class="description">Recent: <%= abbreviate(recent_topic(forum), 40) %> </div>
             <% if admin_signed_in? %>
             <%= link_to_if admin_signed_in?, "Edit", edit_forum_path(forum) %>
             <%= link_to_if admin_signed_in?, "Destroy", {action: "destroy", id: forum}, method: :delete %>
