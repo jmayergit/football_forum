@@ -1,7 +1,7 @@
 <div class="row" id="fixed_height">
   <div class="sixteen wide center aligned column" id="head_col">
       <h2 class="ui sticky top_sub_head">
-        <%= link_to @topic.subject, topic_path(@topic) %>
+        <%= link_to abbreviate(@topic.subject, 15), topic_path(@topic) %>
       </h2>
         <% if user_signed_in? %>
           <% if @topic.user_id == current_user.id %>
