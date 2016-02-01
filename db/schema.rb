@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124200139) do
+ActiveRecord::Schema.define(version: 20160201192753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20160124200139) do
   end
 
   add_index "topics", ["forum_id"], name: "index_topics_on_forum_id", using: :btree
+  add_index "topics", ["subject"], name: "index_topics_on_subject", unique: true, using: :btree
   add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
