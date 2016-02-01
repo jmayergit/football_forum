@@ -72,7 +72,7 @@ class Topic < ActiveRecord::Base
     # Nokogiri::XML::NodeSet
     entries = doc.css("div#siteTable div.entry.unvoted")
     # n is desired amount of entries
-    n = 8
+    n = 16
     i = [n, entries.length].min
     entries[0, i].each do |entry|
 
