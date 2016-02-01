@@ -63,6 +63,11 @@ class User < ActiveRecord::Base
     return memberships.include?(forum.id)
   end
 
+  def self.random_id
+    ids = User.pluck(:id)
+    return ids[rand(0...ids.length)]
+  end
+
   def is_topic?(resource)
     resource.class.name == "Topic"
   end

@@ -22,18 +22,45 @@ class Topic < ActiveRecord::Base
     end
   end
 
-  def self.forum_team(subject)
+  def generate_posts(entry, n)
+    puts "in generate posts.."
+    comments_doc = Nokogiri::HTML(open(entry.css('ul.flat-list.buttons li.first a')[0]["href"]))
+    comments = comments_doc.css(".commentarea form div.md p:first-child")
+
+    j = [n, comments.length].min
+    comments[0, j].each do |comment|
+      body = comment.text
+      user_id = (self.posts.length == 0)? self.user.id : User.random_id
+
+
+      post = self.posts.new(user_id: user_id, topic_id: self.id, body: body )
+
+      if post.valid?
+        post.save
+      end
+    end
+  end
+
+  def self.determine_forum_from(subject)
     puts "In forum team.."
     forums = { 'The ACC' => ["Boston College", "Clemson", "Duke", "Florida State",
       "Georgia Tech", "Louisville", "Miami", "North Carolina", "NC State", "Notre Dame",
       "Pittsburgh", "Syracuse", "Virginia", "Virginia Teach", "Wake Forest"],
                'The Big Ten' => ["Indiana", "Maryland", "Michigan State", "Michigan", "Ohio State",
       "Penn State", "Rutgers", "Illinois", "Iowa", "Minnesota", "Nebraska", "Northwestern",
-      "Purdue", "Wisconsin"]}
+      "Purdue", "Wisconsin"],
+              'The Big 12' => ["Baylor", "Iowa State", "Kansas", "KSU", "Oklahoma",
+      "Oklahoma State", "Texas", "TCU", "Texas Tech", "West Virginia"],
+              'The SEC' => ["Alabama", "Arkansas", "Auburn", "Georgia", "LSU", "Kentucky",
+      "Vanderbilt", "South Carolina", "Missouri", "Texas A&M", "Florida", "Tennessee", "Ole Miss",
+      "Mississippi State"],
+              'The PAC 12' => ["Arizona", "ASU", "UC Berkley", "Colorado", "Oregon", "Oregon State",
+      "USC", "Stanford", "Utah", "Washington", "WSU"]
+    }
 
     forums.keys.each do |forum|
       forums[forum].each do |team|
-        return [forum, team] if subject.match(/(#{team})/)
+        return forum if subject.match(/(#{team})/)
       end
     end
 
@@ -41,7 +68,6 @@ class Topic < ActiveRecord::Base
   end
 
   def self.generate
-    puts "starting generate.."
     doc = Nokogiri::HTML(open("https://www.reddit.com/r/cfb"))
     # Nokogiri::XML::NodeSet
     entries = doc.css("div#siteTable div.entry.unvoted")
@@ -49,19 +75,18 @@ class Topic < ActiveRecord::Base
     n = 8
     i = [n, entries.length].min
     entries[0, i].each do |entry|
-      puts "In entries loop"
+
       subject = entry.css('p.title a[tabindex="1"]').inner_html
-      puts "Subject is " + subject.to_s
-      match = Topic.forum_team(subject)
-      if match
-        puts "Inside match"
-        forum = Forum.find_by_name(match[0])
-        puts "Forum is " + forum.name
-        user = User.first
-        puts "User is " + user.username
-        topic = Topic.new(forum_id: forum.id, user_id: user.id, subject: subject)
+      forum_name = Topic.determine_forum_from(subject)
+      if forum_name
+
+        forum = Forum.find_by_name(forum_name)
+        user_id = User.random_id
+        topic = Topic.new(forum_id: forum.id, user_id: user_id, subject: subject)
         if topic.valid?
+
           topic.save
+          topic.generate_posts(entry, rand(6...12))
         end
       end
     end
