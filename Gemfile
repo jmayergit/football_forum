@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'nokogiri'
+
 gem 'file_validators'
 
 gem 'dotenv-rails', :require => 'dotenv/rails-now', group: :development
