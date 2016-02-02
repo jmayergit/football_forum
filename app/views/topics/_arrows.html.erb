@@ -2,9 +2,11 @@
 <% if user_signed_in? %>
   <i class="arrow circle <%= 'outline' unless current_user.voted_up_on?(post) %> up icon" id="<%= post.id %>"></i>
 <% end %>
-  <span class="up count" id="up<%= post.id %>"><%= post.votes_for.up.size %> )</span>
+  <span class="up count" id="up<%= post.id %>"><%= post.votes_for.up.size %> </span>
+  <span class="up count">)</span>
 <span class="down count">(</span>
 <% if user_signed_in? %>
   <i class="arrow circle <%= 'outline' unless current_user.voted_down_on?(post) %> down icon" id="<%= post.id %>"></i>
 <% end %>
-  <span class="down count" id="down<%= post.id %>"><%= post.votes_for.down.size %> )</span>
+  <span class="down count" id="down<%= post.id %>"><%= post.votes_for.down.size %></span>
+  <span class="down count">)</span>
